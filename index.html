@@ -1094,7 +1094,23 @@
       border-radius: 20px;
       white-space: nowrap;
       pointer-events: none;
-      z-index: 10
+      z-index: 10;
+    }
+
+    .chart-dual {
+      display: flex;
+      gap: 16px;
+      height: 100%;
+      width: 100%;
+      position: relative;
+    }
+
+    .chart-half {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      position: relative;
     }
 
     /* OUTRO */
@@ -1235,15 +1251,22 @@
         grid-template-columns: 1fr
       }
 
+      .chart-dual {
+        flex-direction: column;
+        overflow-y: auto;
+      }
+
       .sticky-visual {
-        position: relative;
-        top: 0;
-        height: 65vw;
+        position: sticky;
+        top: 56px;
+        height: 60vh;
         min-height: 340px;
         max-height: 500px;
         padding: 20px;
         border-bottom: 1px solid rgba(255, 255, 255, .05);
-        order: -1
+        background: var(--bg);
+        z-index: 50;
+        order: -1;
       }
 
       .scroll-text {
@@ -1330,7 +1353,7 @@
           <p>El tráfico vehicular, el comercio informal y la densidad urbana de Bogotá generan exposición a ruido ambiental
             que se asocia con alteraciones de salud. Entre 2019 y 2025, la <strong>Secretaría Distrital de Salud</strong> realizó
             encuestas sistemáticas en hogares de las 20 localidades del Distrito bajo el sistema SIVIGILA D.C.</p>
-          <p>Se analizaron <strong>31,882 registros</strong> (16,336 adultos y 15,546 adolescentes). Una persona se clasificó como
+          <p>Se analizaron <strong>31,882 registros válidos</strong>. Para tener claridad sobre los actores, la muestra poblacional está compuesta por: <strong>11,780 mujeres adultas</strong>, <strong>4,556 hombres adultos</strong> y <strong>15,546 adolescentes</strong>. Una persona se clasificó como
             caso cuando reportó 3 o más síntomas relacionados con el ruido simultáneamente.</p>
           <p>Este estudio documenta la prevalencia de estos casos según localidad, evolución temporal y diferencias entre grupos de
             edad: <strong>adultos (18–64 años)</strong> y <strong>adolescentes (11–17 años)</strong>.
@@ -1354,8 +1377,8 @@
           <div class="problema-stat">
             <div class="ps-icon">👥</div>
             <div>
-              <div class="ps-num b">2 grupos</div>
-              <div class="ps-label">Adultos (18–64 años) y adolescentes (11–17 años)</div>
+              <div class="ps-num b">31,882</div>
+              <div class="ps-label">11,780 mujeres, 4,556 hombres y 15,546 adolescentes</div>
             </div>
           </div>
           <div class="problema-stat">
@@ -1418,7 +1441,7 @@
           </div>
           <div class="perfil-body">
             <div class="perfil-info-row"><span class="pir-icon">📍</span><span class="pir-label">Prevalencia</span><span
-                class="pir-val">14.9% — n=2,327 casos de 15,546</span></div>
+                class="pir-val">14.9% — n=2,327 casos de 15,546 encuestados</span></div>
             <div class="perfil-info-row"><span class="pir-icon">📋</span><span class="pir-label">Fuente</span><span
                 class="pir-val">SIVIGILA D.C. 2019–2025</span></div>
             <div class="perfil-sintomas">
@@ -1454,7 +1477,7 @@
           </div>
           <div class="perfil-body">
             <div class="perfil-info-row"><span class="pir-icon">📍</span><span class="pir-label">Prevalencia</span><span
-                class="pir-val">25.4% — n=4,149 casos de 16,336</span></div>
+                class="pir-val">25.4% — n=4,149 casos de 16,336 (11,780 mujeres, 4,556 hombres)</span></div>
             <div class="perfil-info-row"><span class="pir-icon">📋</span><span class="pir-label">Fuente</span><span
                 class="pir-val">SIVIGILA D.C. 2019–2025</span></div>
             <div class="perfil-sintomas">
@@ -1549,7 +1572,7 @@
 
           <div class="v-panel" id="panel-line">
             <div class="chart-panel">
-              <div class="chart-title">Casos totales por año</div>
+              <div class="chart-title">Casos de alteración de salud por exposición a ruido</div>
               <div class="chart-sub">Adultos y adolescentes · 2019–2025</div>
               <div class="chart-canvas-wrap" style="position:relative">
                 <div class="pandemic-badge">🦠 2020 — Pandemia COVID-19</div>
@@ -1578,7 +1601,7 @@
     <div class="conclusions">
       <div class="concl"><span class="concl-icon">👤</span>
         <div class="concl-title">Prevalencia: 25.4% adultos, 14.9% adolescentes</div>
-        <p class="concl-text">Se analizaron 31,882 registros. Adultos mostraron mayor prevalencia de síntomas
+        <p class="concl-text">De los 31,882 encuestados (11,780 mujeres, 4,556 hombres y 15,546 adolescentes), los adultos mostraron mayor prevalencia de síntomas
           asociados a exposición a ruido. El problema es medible y documentado en todas las localidades.</p>
       </div>
       <div class="concl"><span class="concl-icon">🚗</span>
@@ -1717,21 +1740,35 @@
       data: {
         labels: [2019, 2020, 2021, 2022, 2023, 2024, 2025], datasets: [
           {
-            label: 'Adultos', data: [1200, 410, 710, 750, 720, 680, null], borderColor: '#4f8ef7',
+            label: 'Adultos (Femenino)', 
+            data: [881, 310, 522, 456, 522, 429, null], 
+            borderColor: '#f97316',
+            backgroundColor: ctx => { const g = ctx.chart.ctx.createLinearGradient(0, 0, 0, 280); g.addColorStop(0, 'rgba(249,115,22,.18)'); g.addColorStop(1, 'rgba(249,115,22,0)'); return g },
+            fill: true, tension: .45, pointRadius: 5, pointHoverRadius: 9, borderWidth: 2.5, pointBackgroundColor: '#f97316', spanGaps: false
+          },
+          {
+            label: 'Adultos (Masculino)', 
+            data: [324, 78, 177, 139, 152, 165, null], 
+            borderColor: '#4f8ef7',
             backgroundColor: ctx => { const g = ctx.chart.ctx.createLinearGradient(0, 0, 0, 280); g.addColorStop(0, 'rgba(79,142,247,.18)'); g.addColorStop(1, 'rgba(79,142,247,0)'); return g },
             fill: true, tension: .45, pointRadius: 5, pointHoverRadius: 9, borderWidth: 2.5, pointBackgroundColor: '#4f8ef7', spanGaps: false
           },
           {
-            label: 'Adolescentes', data: [620, 210, 400, 420, 390, 360, 90], borderColor: '#f97316',
-            backgroundColor: ctx => { const g = ctx.chart.ctx.createLinearGradient(0, 0, 0, 280); g.addColorStop(0, 'rgba(249,115,22,.13)'); g.addColorStop(1, 'rgba(249,115,22,0)'); return g },
-            fill: true, tension: .45, pointRadius: 5, pointHoverRadius: 9, borderWidth: 2.5, pointBackgroundColor: '#f97316'
+            label: 'Adolescentes (Total)', 
+            data: [592, 195, 418, 296, 398, 327, 87], 
+            borderColor: '#2dd4a0',
+            backgroundColor: ctx => { const g = ctx.chart.ctx.createLinearGradient(0, 0, 0, 280); g.addColorStop(0, 'rgba(45,212,160,.18)'); g.addColorStop(1, 'rgba(45,212,160,0)'); return g },
+            fill: true, tension: .45, pointRadius: 5, pointHoverRadius: 9, borderWidth: 2.5, pointBackgroundColor: '#2dd4a0'
           }
         ]
       },
       options: {
         responsive: true, maintainAspectRatio: false, animation: { duration: 900, easing: 'easeInOutQuart' },
         plugins: { legend: { position: 'top', labels: { boxWidth: 10, padding: 16 } }, tooltip: tc },
-        scales: { x: { grid: { color: gc }, ticks: { color: '#5a6480' } }, y: { grid: { color: gc }, ticks: { color: '#5a6480' }, title: { display: true, text: 'Casos', color: '#3a4260', font: { size: 11 } } } }
+        scales: { 
+          x: { grid: { color: gc }, ticks: { color: '#5a6480' } }, 
+          y: { grid: { color: gc }, ticks: { color: '#5a6480' }, title: { display: true, text: 'Casos reportados', color: '#3a4260', font: { size: 11 } } } 
+        }
       }
     });
 
