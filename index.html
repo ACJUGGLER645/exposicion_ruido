@@ -858,11 +858,11 @@
 
     .step h2 {
       font-family: 'Syne', sans-serif;
-      font-size: clamp(22px, 3vw, 36px);
+      font-size: clamp(26px, 3.6vw, 43px);
       font-weight: 800;
       line-height: 1.15;
       letter-spacing: -.02em;
-      margin-bottom: 18px
+      margin-bottom: 22px
     }
 
     .step h2 em {
@@ -882,7 +882,7 @@
     }
 
     .step p {
-      font-size: 15px;
+      font-size: 17px;
       color: var(--muted);
       line-height: 1.85;
       max-width: 360px;
@@ -899,12 +899,12 @@
     }
 
     .callout {
-      margin-top: 24px;
-      padding: 16px 20px;
+      margin-top: 28px;
+      padding: 19px 24px;
       border-left: 3px solid var(--accent);
       background: rgba(249, 115, 22, .06);
       border-radius: 0 8px 8px 0;
-      font-size: 14px;
+      font-size: 16px;
       color: var(--text);
       max-width: 360px;
       line-height: 1.7
@@ -925,10 +925,10 @@
       align-items: baseline;
       gap: 4px;
       font-family: 'Syne', sans-serif;
-      font-size: 48px;
+      font-size: 58px;
       font-weight: 800;
       line-height: 1;
-      margin: 20px 0 8px
+      margin: 24px 0 10px
     }
 
     .stat-hl.o {
@@ -1051,30 +1051,36 @@
 
     .chart-title {
       font-family: 'Syne', sans-serif;
-      font-size: 13px;
+      font-size: 15px;
       font-weight: 700;
       letter-spacing: .1em;
       text-transform: uppercase;
       color: var(--muted);
-      margin-bottom: 6px
+      margin-bottom: 8px
     }
 
     .chart-sub {
-      font-size: 13px;
+      font-size: 15px;
       color: var(--dim);
-      margin-bottom: 24px;
+      margin-bottom: 28px;
       line-height: 1.5
     }
 
     .chart-canvas-wrap {
       position: relative;
       flex: 1;
-      min-height: 0
+      min-height: 0;
+      height: 540px;
+      max-height: 540px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 36px
     }
 
     .pandemic-badge {
       position: absolute;
-      top: 12px;
+      top: 0;
       left: 50%;
       transform: translateX(-50%);
       background: rgba(167, 139, 250, .12);
@@ -1087,7 +1093,8 @@
       padding: 5px 14px;
       border-radius: 20px;
       white-space: nowrap;
-      pointer-events: none
+      pointer-events: none;
+      z-index: 10
     }
 
     /* OUTRO */
