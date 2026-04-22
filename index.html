@@ -1,0 +1,1796 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>El ruido que nos enferma — Bogotá 2019–2025</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    :root {
+      --bg: #08090f;
+      --bg2: #0d1018;
+      --bg3: #111520;
+      --text: #dde2ef;
+      --muted: #5a6480;
+      --dim: #3a4260;
+      --accent: #f97316;
+      --blue: #4f8ef7;
+      --green: #2dd4a0;
+      --purple: #a78bfa;
+      --red: #f43f5e;
+      --step-h: 110vh;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.75;
+      overflow-x: hidden
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+      opacity: .35
+    }
+
+    /* PROGRESS */
+    #progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 2px;
+      width: 0%;
+      background: linear-gradient(90deg, var(--accent), var(--blue));
+      z-index: 300;
+      transition: width .1s linear
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      height: 56px;
+      background: rgba(8, 9, 15, .85);
+      backdrop-filter: blur(24px);
+      border-bottom: 1px solid rgba(255, 255, 255, .05)
+    }
+
+    .nav-brand {
+      font-family: 'Syne', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--accent)
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px
+    }
+
+    .nav-link {
+      font-size: 11px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--dim);
+      cursor: pointer;
+      transition: color .25s;
+      text-decoration: none
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--text)
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0 10vw 10vh;
+      position: relative;
+      overflow: hidden
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 55% at 80% 40%, rgba(249, 115, 22, .07) 0%, transparent 60%), radial-gradient(ellipse 50% 70% at 15% 70%, rgba(79, 142, 247, .05) 0%, transparent 55%)
+    }
+
+    .hero-rings {
+      position: absolute;
+      right: 12vw;
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none
+    }
+
+    .ring {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      border: 1px solid rgba(249, 115, 22, .15);
+      animation: rp 4s ease-out infinite
+    }
+
+    .ring:nth-child(1) {
+      width: 80px;
+      height: 80px;
+      animation-delay: 0s
+    }
+
+    .ring:nth-child(2) {
+      width: 160px;
+      height: 160px;
+      animation-delay: .6s
+    }
+
+    .ring:nth-child(3) {
+      width: 260px;
+      height: 260px;
+      animation-delay: 1.2s
+    }
+
+    .ring:nth-child(4) {
+      width: 380px;
+      height: 380px;
+      animation-delay: 1.8s
+    }
+
+    .ring:nth-child(5) {
+      width: 520px;
+      height: 520px;
+      animation-delay: 2.4s
+    }
+
+    @keyframes rp {
+      0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(.8)
+      }
+
+      30% {
+        opacity: 1
+      }
+
+      100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(1.05)
+      }
+    }
+
+    .hero-eyebrow {
+      font-family: 'Syne', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
+      position: relative
+    }
+
+    .hero h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(40px, 7vw, 96px);
+      font-weight: 800;
+      line-height: .95;
+      letter-spacing: -.03em;
+      margin-bottom: 28px;
+      max-width: 700px;
+      position: relative
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: var(--accent)
+    }
+
+    .hero-lead {
+      font-size: clamp(15px, 1.5vw, 18px);
+      color: var(--muted);
+      max-width: 500px;
+      font-weight: 300;
+      margin-bottom: 48px;
+      position: relative;
+      line-height: 1.9
+    }
+
+    .hero-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 56px;
+      position: relative
+    }
+
+    .pill {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      padding: 8px 20px;
+      border-radius: 100px;
+      background: rgba(255, 255, 255, .04);
+      border: 1px solid rgba(255, 255, 255, .08);
+      font-size: 13px
+    }
+
+    .pill-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 18px;
+      font-weight: 800;
+      line-height: 1
+    }
+
+    .pill-num.o {
+      color: var(--accent)
+    }
+
+    .pill-num.b {
+      color: var(--blue)
+    }
+
+    .pill-num.g {
+      color: var(--green)
+    }
+
+    .pill-num.p {
+      color: var(--purple)
+    }
+
+    .pill-label {
+      color: var(--muted);
+      font-size: 12px
+    }
+
+    .scroll-cue {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 12px;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--dim);
+      position: relative;
+      animation: cb 2.5s ease-in-out infinite
+    }
+
+    .scroll-cue svg {
+      animation: ad 2.5s ease-in-out infinite
+    }
+
+    @keyframes cb {
+
+      0%,
+      100% {
+        opacity: .4
+      }
+
+      50% {
+        opacity: 1
+      }
+    }
+
+    @keyframes ad {
+
+      0%,
+      100% {
+        transform: translateY(0)
+      }
+
+      50% {
+        transform: translateY(6px)
+      }
+    }
+
+    /* SECTION COMMON */
+    .section-label {
+      font-family: 'Syne', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .3em;
+      text-transform: uppercase;
+      color: var(--accent);
+      opacity: .6;
+      margin-bottom: 14px
+    }
+
+    .section-divider {
+      height: 1px;
+      background: rgba(255, 255, 255, .05);
+      margin: 0 10vw
+    }
+
+    /* PROBLEMA */
+    .problema-section {
+      padding: 14vh 10vw 10vh;
+      max-width: 1200px;
+      margin: 0 auto
+    }
+
+    .problema-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center
+    }
+
+    .problema-text h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(28px, 3.5vw, 48px);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -.02em;
+      margin-bottom: 24px
+    }
+
+    .problema-text h2 em {
+      font-style: normal;
+      color: var(--accent)
+    }
+
+    .problema-text p {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.9;
+      font-weight: 300;
+      margin-bottom: 14px
+    }
+
+    .problema-text p strong {
+      color: var(--text);
+      font-weight: 500
+    }
+
+    .problema-visual {
+      display: flex;
+      flex-direction: column;
+      gap: 16px
+    }
+
+    .problema-stat {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 20px 24px;
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid rgba(255, 255, 255, .07);
+      border-radius: 12px;
+      transition: border-color .3s, background .3s
+    }
+
+    .problema-stat:hover {
+      border-color: rgba(249, 115, 22, .25);
+      background: rgba(249, 115, 22, .04)
+    }
+
+    .ps-icon {
+      font-size: 28px;
+      flex-shrink: 0
+    }
+
+    .ps-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 28px;
+      font-weight: 800;
+      line-height: 1;
+      color: var(--accent)
+    }
+
+    .ps-num.b {
+      color: var(--blue)
+    }
+
+    .ps-num.g {
+      color: var(--green)
+    }
+
+    .ps-label {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 3px
+    }
+
+    /* PREGUNTA */
+    .pregunta-section {
+      padding: 12vh 10vw 12vh
+    }
+
+    .pregunta-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center
+    }
+
+    .pregunta-inner .section-label {
+      text-align: center
+    }
+
+    .pregunta-block {
+      position: relative;
+      margin: 40px 0;
+      padding: 48px 56px;
+      border-radius: 20px;
+      background: rgba(249, 115, 22, .04);
+      border: 1px solid rgba(249, 115, 22, .15)
+    }
+
+    .pregunta-block::before {
+      content: '?';
+      position: absolute;
+      top: -28px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'Syne', sans-serif;
+      font-size: 56px;
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1;
+      opacity: .15
+    }
+
+    .pregunta-text {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(18px, 2.5vw, 28px);
+      font-weight: 700;
+      line-height: 1.4;
+      color: var(--text);
+      letter-spacing: -.01em
+    }
+
+    .pregunta-text em {
+      font-style: normal;
+      color: var(--accent)
+    }
+
+    .pregunta-subs {
+      display: flex;
+      gap: 20px;
+      margin-top: 36px;
+      justify-content: center
+    }
+
+    .pregunta-sub {
+      flex: 1;
+      max-width: 260px;
+      padding: 20px 24px;
+      background: rgba(255, 255, 255, .02);
+      border: 1px solid rgba(255, 255, 255, .06);
+      border-radius: 12px;
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.7;
+      text-align: left
+    }
+
+    .pregunta-sub .sub-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      display: block
+    }
+
+    /* PERFILES */
+    .perfiles-section {
+      padding: 10vh 10vw 12vh;
+      max-width: 1300px;
+      margin: 0 auto
+    }
+
+    .perfiles-section>.section-label {
+      margin-bottom: 10px
+    }
+
+    .perfiles-section>h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(24px, 3vw, 40px);
+      font-weight: 800;
+      letter-spacing: -.02em;
+      margin-bottom: 12px
+    }
+
+    .perfiles-section>h2 em {
+      font-style: normal;
+      color: var(--accent)
+    }
+
+    .perfiles-section>.sub-intro {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 48px;
+      max-width: 560px;
+      line-height: 1.8
+    }
+
+    .perfiles-dual {
+      display: grid;
+      grid-template-columns: minmax(280px, 1fr) auto minmax(280px, 1fr);
+      gap: 32px;
+      align-items: center
+    }
+
+    .perfil-img-center {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      max-width: 320px;
+      aspect-ratio: 3.8 / 5;
+      border-radius: 24px;
+      overflow: hidden;
+      margin: 0 auto;
+      background: #f8f9fa;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, .4);
+    }
+
+    .perfil-img-center img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.45) translateY(6%);
+    }
+
+    .img-placeholder {
+      width: 260px;
+      height: 320px;
+      border-radius: 20px;
+      background: linear-gradient(160deg, rgba(249, 115, 22, .06), rgba(79, 142, 247, .05));
+      border: 1px solid rgba(255, 255, 255, .06);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      color: var(--dim)
+    }
+
+    .img-placeholder span {
+      font-size: 52px
+    }
+
+    .img-placeholder p {
+      font-size: 11px;
+      letter-spacing: .1em;
+      text-transform: uppercase
+    }
+
+    .perfil-card {
+      background: var(--bg3);
+      border: 1px solid rgba(255, 255, 255, .07);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: transform .3s cubic-bezier(.4, 0, .2, 1), border-color .3s, box-shadow .3s
+    }
+
+    .perfil-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(249, 115, 22, .3);
+      box-shadow: 0 24px 48px rgba(0, 0, 0, .4)
+    }
+
+    .perfil-card.adolescente:hover {
+      border-color: rgba(79, 142, 247, .35);
+      box-shadow: 0 24px 48px rgba(0, 0, 0, .4), 0 0 0 1px rgba(79, 142, 247, .1)
+    }
+
+    .perfil-header {
+      padding: 28px 28px 20px;
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      border-bottom: 1px solid rgba(255, 255, 255, .05)
+    }
+
+    .perfil-avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      flex-shrink: 0
+    }
+
+    .perfil-avatar.adulto-f {
+      background: radial-gradient(circle at 40% 35%, #3d1a1a, #1a0d0d);
+      border: 2px solid rgba(249, 115, 22, .3)
+    }
+
+    .perfil-avatar.adol-m {
+      background: radial-gradient(circle at 40% 35%, #1a2f1a, #0d180d);
+      border: 2px solid rgba(45, 212, 160, .3)
+    }
+
+    .perfil-name {
+      font-family: 'Syne', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 4px
+    }
+
+    .perfil-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase
+    }
+
+    .perfil-tag.adulto {
+      background: rgba(249, 115, 22, .12);
+      color: var(--accent);
+      border: 1px solid rgba(249, 115, 22, .2)
+    }
+
+    .perfil-tag.adolescente {
+      background: rgba(79, 142, 247, .12);
+      color: var(--blue);
+      border: 1px solid rgba(79, 142, 247, .2)
+    }
+
+    .perfil-body {
+      padding: 20px 28px 24px
+    }
+
+    .perfil-info-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, .04);
+      font-size: 14px
+    }
+
+    .perfil-info-row:last-of-type {
+      border-bottom: none
+    }
+
+    .pir-icon {
+      font-size: 16px;
+      opacity: .7;
+      flex-shrink: 0;
+      width: 20px;
+      text-align: center;
+      margin-top: 2px
+    }
+
+    .pir-label {
+      color: var(--dim);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      min-width: 70px;
+      flex-shrink: 0;
+      margin-top: 4px
+    }
+
+    .pir-val {
+      color: var(--text);
+      font-weight: 400;
+      line-height: 1.5
+    }
+
+    .perfil-sintomas {
+      margin-top: 18px;
+      padding: 16px 18px;
+      background: rgba(255, 255, 255, .02);
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, .05)
+    }
+
+    .sint-title {
+      font-size: 10px;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--dim);
+      margin-bottom: 12px
+    }
+
+    .sint-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px
+    }
+
+    .sint-chip {
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 500
+    }
+
+    .sint-chip.warn {
+      background: rgba(249, 115, 22, .1);
+      color: #f97316;
+      border: 1px solid rgba(249, 115, 22, .2)
+    }
+
+    .sint-chip.blue {
+      background: rgba(79, 142, 247, .1);
+      color: #4f8ef7;
+      border: 1px solid rgba(79, 142, 247, .2)
+    }
+
+    .sint-chip.purp {
+      background: rgba(167, 139, 250, .1);
+      color: #a78bfa;
+      border: 1px solid rgba(167, 139, 250, .2)
+    }
+
+    .sint-chip.red {
+      background: rgba(244, 63, 94, .1);
+      color: #f43f5e;
+      border: 1px solid rgba(244, 63, 94, .2)
+    }
+
+    .perfil-quote {
+      margin-top: 14px;
+      padding: 12px 16px;
+      border-left: 2px solid var(--accent);
+      font-size: 13px;
+      color: var(--muted);
+      font-style: italic;
+      line-height: 1.7
+    }
+
+    .perfil-card.adolescente .perfil-quote {
+      border-left-color: var(--blue)
+    }
+
+    /* SCROLLY */
+    .scrolly-section {
+      position: relative
+    }
+
+    .scrolly-inner {
+      display: grid;
+      grid-template-columns: 40% 60%;
+      align-items: start;
+      max-width: 1400px;
+      margin: 0 auto
+    }
+
+    .scroll-text {
+      padding: 0 0 40vh 10vw
+    }
+
+    .sticky-visual {
+      position: sticky;
+      top: 56px;
+      height: calc(100vh - 56px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 6vw 32px 2vw
+    }
+
+    .visual-stage {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      max-height: 680px
+    }
+
+    .v-panel {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transform: translateY(16px) scale(.98);
+      transition: opacity .55s cubic-bezier(.4, 0, .2, 1), transform .55s cubic-bezier(.4, 0, .2, 1);
+      pointer-events: none
+    }
+
+    .v-panel.active {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      pointer-events: auto
+    }
+
+    /* STEPS */
+    .step {
+      min-height: var(--step-h);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 8vh 0
+    }
+
+    .step-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 18px;
+      opacity: .7
+    }
+
+    .step h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(22px, 3vw, 36px);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -.02em;
+      margin-bottom: 18px
+    }
+
+    .step h2 em {
+      font-style: normal
+    }
+
+    .step h2 em.o {
+      color: var(--accent)
+    }
+
+    .step h2 em.b {
+      color: var(--blue)
+    }
+
+    .step h2 em.p {
+      color: var(--purple)
+    }
+
+    .step p {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.85;
+      max-width: 360px;
+      font-weight: 300
+    }
+
+    .step p+p {
+      margin-top: 14px
+    }
+
+    .step p strong {
+      color: var(--text);
+      font-weight: 500
+    }
+
+    .callout {
+      margin-top: 24px;
+      padding: 16px 20px;
+      border-left: 3px solid var(--accent);
+      background: rgba(249, 115, 22, .06);
+      border-radius: 0 8px 8px 0;
+      font-size: 14px;
+      color: var(--text);
+      max-width: 360px;
+      line-height: 1.7
+    }
+
+    .callout.blue {
+      border-color: var(--blue);
+      background: rgba(79, 142, 247, .06)
+    }
+
+    .callout.purple {
+      border-color: var(--purple);
+      background: rgba(167, 139, 250, .06)
+    }
+
+    .stat-hl {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 4px;
+      font-family: 'Syne', sans-serif;
+      font-size: 48px;
+      font-weight: 800;
+      line-height: 1;
+      margin: 20px 0 8px
+    }
+
+    .stat-hl.o {
+      color: var(--accent)
+    }
+
+    .stat-hl.p {
+      color: var(--purple)
+    }
+
+    .stat-hl.b {
+      color: var(--blue)
+    }
+
+    .stat-hl sup {
+      font-size: 18px
+    }
+
+    /* LEAFLET MAP */
+    .map-wrap {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 10px
+    }
+
+    #leaf-map {
+      flex: 1;
+      min-height: 0;
+      border-radius: 14px;
+      overflow: hidden;
+      pointer-events: none
+    }
+
+    #leaf-map .leaflet-interactive {
+      pointer-events: visiblePainted
+    }
+
+    .leaflet-container {
+      background: var(--bg) !important;
+      font-family: 'DM Sans', sans-serif !important
+    }
+
+    .leaflet-control-zoom {
+      display: none !important
+    }
+
+    .leaflet-control-attribution {
+      background: rgba(8, 9, 15, .7) !important;
+      color: rgba(255, 255, 255, .2) !important;
+      font-size: 9px !important
+    }
+
+    .leaflet-control-attribution a {
+      color: rgba(255, 255, 255, .3) !important
+    }
+
+    .leaf-tip {
+      background: rgba(8, 9, 15, .97) !important;
+      border: 1px solid rgba(249, 115, 22, .4) !important;
+      border-radius: 10px !important;
+      padding: 11px 15px !important;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, .7) !important;
+      pointer-events: none !important;
+      font-size: 13px
+    }
+
+    .leaf-tip::before {
+      display: none !important
+    }
+
+    .lt-name {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--accent);
+      margin-bottom: 7px
+    }
+
+    .lt-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 2px
+    }
+
+    .lt-row span:last-child {
+      color: var(--text);
+      font-weight: 500
+    }
+
+    .map-legend {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: .05em;
+      flex-shrink: 0
+    }
+
+    .leg-grad {
+      width: 130px;
+      height: 6px;
+      border-radius: 3px;
+      background: linear-gradient(90deg, #1b3a6b, #f97316)
+    }
+
+    /* CHARTS */
+    .chart-panel {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center
+    }
+
+    .chart-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 6px
+    }
+
+    .chart-sub {
+      font-size: 13px;
+      color: var(--dim);
+      margin-bottom: 24px;
+      line-height: 1.5
+    }
+
+    .chart-canvas-wrap {
+      position: relative;
+      flex: 1;
+      min-height: 0
+    }
+
+    .pandemic-badge {
+      position: absolute;
+      top: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(167, 139, 250, .12);
+      border: 1px solid rgba(167, 139, 250, .3);
+      color: var(--purple);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 20px;
+      white-space: nowrap;
+      pointer-events: none
+    }
+
+    /* OUTRO */
+    .outro {
+      padding: 16vh 10vw 12vh;
+      max-width: 900px;
+      margin: 0 auto
+    }
+
+    .outro h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(28px, 4vw, 52px);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -.02em;
+      margin-bottom: 48px
+    }
+
+    .outro h2 em {
+      font-style: normal;
+      color: var(--accent)
+    }
+
+    .conclusions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: rgba(255, 255, 255, .05);
+      border: 1px solid rgba(255, 255, 255, .05);
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 60px
+    }
+
+    .concl {
+      padding: 32px 36px;
+      background: var(--bg);
+      transition: background .25s
+    }
+
+    .concl:hover {
+      background: rgba(249, 115, 22, .04)
+    }
+
+    .concl-icon {
+      font-size: 26px;
+      margin-bottom: 14px;
+      display: block
+    }
+
+    .concl-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 10px
+    }
+
+    .concl-text {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.75
+    }
+
+    .credits {
+      border-top: 1px solid rgba(255, 255, 255, .05);
+      padding-top: 40px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px
+    }
+
+    .credits-left .label {
+      font-size: 11px;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--dim);
+      margin-bottom: 8px
+    }
+
+    .credits-left p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.8
+    }
+
+    .credits-left a {
+      color: var(--blue);
+      text-decoration: none
+    }
+
+    /* RESPONSIVE */
+    @media(max-width:1100px) {
+      .perfiles-dual {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        max-width: 500px;
+        margin: 0 auto
+      }
+
+      .perfil-img-center {
+        order: -1
+      }
+    }
+
+    @media(max-width:860px) {
+      nav {
+        padding: 0 20px
+      }
+
+      .nav-links {
+        display: none
+      }
+
+      .hero {
+        padding: 0 6vw 8vh
+      }
+
+      .hero-rings {
+        display: none
+      }
+
+      .problema-grid {
+        grid-template-columns: 1fr;
+        gap: 40px
+      }
+
+      .pregunta-block {
+        padding: 32px 24px
+      }
+
+      .pregunta-subs {
+        flex-direction: column;
+        align-items: center
+      }
+
+      .scrolly-inner {
+        grid-template-columns: 1fr
+      }
+
+      .sticky-visual {
+        position: relative;
+        top: 0;
+        height: 65vw;
+        min-height: 340px;
+        max-height: 500px;
+        padding: 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, .05);
+        order: -1
+      }
+
+      .scroll-text {
+        padding: 6vw 6vw 20px;
+        order: 1
+      }
+
+      .step {
+        min-height: unset;
+        padding: 48px 0
+      }
+
+      .step p,
+      .callout {
+        max-width: 100%
+      }
+
+      .conclusions {
+        grid-template-columns: 1fr
+      }
+
+      .outro {
+        padding: 10vh 6vw 8vh
+      }
+
+      .credits {
+        flex-direction: column
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="progress-bar"></div>
+
+  <nav>
+    <div class="nav-brand">Bogotá · Ruido & Salud</div>
+    <div class="nav-links">
+      <a class="nav-link" href="#problema">Problema</a>
+      <a class="nav-link" href="#pregunta">Pregunta</a>
+      <a class="nav-link" href="#perfiles">Perfiles</a>
+      <a class="nav-link" href="#datos">Datos</a>
+      <a class="nav-link" href="#conclusiones">Conclusiones</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <div class="hero-bg"></div>
+    <div class="hero-rings">
+      <div class="ring"></div>
+      <div class="ring"></div>
+      <div class="ring"></div>
+      <div class="ring"></div>
+      <div class="ring"></div>
+    </div>
+    <div class="hero-eyebrow">Estudio de caso · Ciencia de Datos · Bogotá D.C. · 2026</div>
+    <h1>El ruido<br>que nos<br><em>enferma</em></h1>
+    <p class="hero-lead">Un recorrido por seis años de datos que revelan cómo el ruido ambiental afecta la salud de
+      31,882 bogotanos — y por qué algunos barrios son mucho más vulnerables que otros.</p>
+    <div class="hero-pills">
+      <div class="pill"><span class="pill-num o">31,882</span><span class="pill-label">registros analizados</span></div>
+      <div class="pill"><span class="pill-num b">25.4%</span><span class="pill-label">adultos afectados</span></div>
+      <div class="pill"><span class="pill-num g">14.9%</span><span class="pill-label">adolescentes afectados</span>
+      </div>
+      <div class="pill"><span class="pill-num p">−66%</span><span class="pill-label">caída en pandemia 2020</span></div>
+    </div>
+    <div class="scroll-cue">Desplázate para explorar
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path d="M8 3v10M3 9l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+          stroke-linejoin="round" />
+      </svg>
+    </div>
+  </section>
+
+  <!-- 1. PROBLEMÁTICA -->
+  <section id="problema">
+    <div class="problema-section">
+      <div class="section-label">01 — La problemática</div>
+      <div class="problema-grid">
+        <div class="problema-text">
+          <h2>Bogotá vive en un <em>ambiente sonoro que enferma</em></h2>
+          <p>El tráfico vehicular, el comercio informal y la densidad urbana de Bogotá generan niveles de ruido que
+            <strong>superan constantemente los 65 dB recomendados por la OMS</strong>. Para millones de habitantes esto
+            no es un dato técnico: es un dolor de cabeza que no se va, una noche que no llega, una irritabilidad sin
+            nombre.</p>
+          <p>Entre 2019 y 2025, la <strong>Secretaría Distrital de Salud</strong> levantó encuestas en hogares de las 20
+            localidades del Distrito bajo el sistema SIVIGILA D.C. Los resultados muestran un problema amplio, medible y
+            —lo más importante— <strong>reversible</strong>.</p>
+          <p>Este estudio busca entender qué tan grave es ese problema, cómo ha cambiado en el tiempo, y si afecta de la
+            misma forma a los <strong>adultos (18–64 años)</strong> y a los <strong>adolescentes (11–17 años)</strong>.
+          </p>
+        </div>
+        <div class="problema-visual">
+          <div class="problema-stat">
+            <div class="ps-icon">🏙️</div>
+            <div>
+              <div class="ps-num">20</div>
+              <div class="ps-label">localidades monitoreadas en el Distrito Capital</div>
+            </div>
+          </div>
+          <div class="problema-stat">
+            <div class="ps-icon">📋</div>
+            <div>
+              <div class="ps-num">31,882</div>
+              <div class="ps-label">encuestas en hogares entre 2019 y 2025</div>
+            </div>
+          </div>
+          <div class="problema-stat">
+            <div class="ps-icon">👥</div>
+            <div>
+              <div class="ps-num b">2 grupos</div>
+              <div class="ps-label">Adultos (18–64 años) y adolescentes (11–17 años)</div>
+            </div>
+          </div>
+          <div class="problema-stat">
+            <div class="ps-icon">⚠️</div>
+            <div>
+              <div class="ps-num" style="color:var(--red)">3+ síntomas</div>
+              <div class="ps-label">criterio para contar a alguien como caso afectado</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- 2. PREGUNTA -->
+  <section id="pregunta">
+    <div class="pregunta-section">
+      <div class="pregunta-inner">
+        <div class="section-label">02 — Pregunta orientadora</div>
+        <p style="font-size:14px;color:var(--muted);margin-bottom:28px">Antes de explorar los datos, es importante saber
+          qué queremos responder.</p>
+        <div class="pregunta-block">
+          <div class="pregunta-text">¿Cómo ha cambiado el impacto del <em>ruido ambiental</em> en la salud de los
+            bogotanos entre 2019 y 2025, y de qué forma afecta de manera <em>distinta</em> a adultos y adolescentes?
+          </div>
+        </div>
+        <div class="pregunta-subs">
+          <div class="pregunta-sub"><span class="sub-num">Dimensión 1</span>¿Qué tan extendido está el problema?
+            ¿Cuántas personas y en qué localidades?</div>
+          <div class="pregunta-sub"><span class="sub-num">Dimensión 2</span>¿Qué ocurrió en 2020? ¿Puede la pandemia
+            enseñarnos algo sobre causalidad?</div>
+          <div class="pregunta-sub"><span class="sub-num">Dimensión 3</span>¿Adultos y adolescentes sufren los mismos
+            síntomas o se manifiesta distinto según el grupo?</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- 3. PERFILES -->
+  <section id="perfiles">
+    <div class="perfiles-section">
+      <div class="section-label">03 — Perfiles de los entrevistados</div>
+      <h2>Estas historias <em>están en los datos</em></h2>
+      <p class="sub-intro">Detrás de cada registro hay una persona. A continuación, el resumen de las afectaciones de
+        los dos principales grupos poblacionales analizados, obtenidos a través de encuestas en hogares.</p>
+      <div class="perfiles-dual">
+
+        <!-- Adolescente -->
+        <div class="perfil-card adolescente">
+          <div class="perfil-header">
+            <div class="perfil-avatar adol-m">🎧</div>
+            <div class="perfil-meta">
+              <div class="perfil-name">Adolescentes</div>
+              <span class="perfil-tag adolescente">● 11 a 17 años</span>
+            </div>
+          </div>
+          <div class="perfil-body">
+            <div class="perfil-info-row"><span class="pir-icon">📍</span><span class="pir-label">Foco</span><span
+                class="pir-val">Usaquén, Barrios Unidos, Engativá</span></div>
+            <div class="perfil-info-row"><span class="pir-icon">📋</span><span class="pir-label">Encuesta</span><span
+                class="pir-val">SIVIGILA D.C. (Hogares)</span></div>
+            <div class="perfil-sintomas">
+              <div class="sint-title">Síntomas Reportados</div>
+              <div class="sint-chips">
+                <span class="sint-chip purp">Uso habitual de audífonos (70.4%)</span>
+                <span class="sint-chip warn">Volumen elevado</span>
+                <span class="sint-chip red">Zumbido de oídos</span>
+              </div>
+            </div>
+            <div class="perfil-quote">"Los adolescentes utilizan el volumen alto como una barrera contra el ruido de la
+              ciudad. El impacto principal no es el insomnio, sino un deterioro auditivo silencioso e irreversible a
+              mediano plazo."</div>
+          </div>
+        </div>
+
+        <!-- Imagen central — muestra familia.png si existe, placeholder si no -->
+        <div class="perfil-img-center">
+          <img src="familia.png" alt="Adolescente y Adulta"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="img-placeholder" style="display:none">
+            <span>👥</span>
+            <p>familia.png</p>
+          </div>
+        </div>
+
+        <!-- Adulto -->
+        <div class="perfil-card">
+          <div class="perfil-header">
+            <div class="perfil-avatar adulto-f">👩</div>
+            <div class="perfil-meta">
+              <div class="perfil-name">Adultos</div>
+              <span class="perfil-tag adulto">● 18 a 64 años</span>
+            </div>
+          </div>
+          <div class="perfil-body">
+            <div class="perfil-info-row"><span class="pir-icon">📍</span><span class="pir-label">Foco</span><span
+                class="pir-val">Barrios Unidos, Usaquén, Teusaquillo</span></div>
+            <div class="perfil-info-row"><span class="pir-icon">📋</span><span class="pir-label">Encuesta</span><span
+                class="pir-val">SIVIGILA D.C. (Hogares)</span></div>
+            <div class="perfil-sintomas">
+              <div class="sint-title">Síntomas Reportados</div>
+              <div class="sint-chips">
+                <span class="sint-chip warn">Alteración del sueño (35.8%)</span>
+                <span class="sint-chip blue">Somnolencia diurna (8.7%)</span>
+                <span class="sint-chip red">Riesgo cardiovascular</span>
+              </div>
+            </div>
+            <div class="perfil-quote">"El mayor impacto se da en el descanso. La exposición prolongada al tráfico
+              durante la noche impide el sueño profundo, disminuyendo la calidad de vida y aumentando el estrés
+              general."</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- 4. SCROLLYTELLING -->
+  <div class="scrolly-section" id="datos">
+    <div class="scrolly-inner">
+      <div class="scroll-text">
+
+        <div class="step" data-step="0">
+          <div class="step-num">04 — Los datos · Panorama</div>
+          <h2>Una ciudad expuesta<br>al <em class="o">ruido</em> constante</h2>
+          <p>Las 20 localidades de Bogotá no enfrentan el ruido de la misma manera. El mapa muestra la
+            <strong>prevalencia de afectación</strong> — qué porcentaje de los encuestados reporta 3 o más síntomas
+            relacionados con el ruido al mismo tiempo.</p>
+          <p>Los colores más cálidos indican mayor riesgo. Pasa el cursor sobre cualquier localidad para ver su dato
+            exacto.</p>
+          <div class="callout">Los datos provienen de <strong>SaluData</strong> (Secretaría Distrital de Salud), con
+            encuestas realizadas en hogares entre 2019 y 2025 bajo el sistema SIVIGILA D.C.</div>
+        </div>
+
+        <div class="step" data-step="1">
+          <div class="step-num">04 — Los datos · Epicentro</div>
+          <h2>No es Suba.<br>Es <em class="o">Barrios Unidos</em><br>y <em class="o">Teusaquillo</em>.</h2>
+          <p>A primera vista, <strong>Suba</strong> parece el mayor problema porque concentra el mayor número de casos
+            absolutos. Pero eso se debe a que Suba es la localidad más poblada.</p>
+          <p>Cuando se calcula el <strong>porcentaje de personas afectadas</strong>, el ranking cambia completamente.
+          </p>
+          <div class="stat-hl o">33.1<sup>%</sup></div>
+          <p>Uno de cada tres residentes de <strong>Barrios Unidos</strong> presenta síntomas.
+            <strong>Teusaquillo</strong> le sigue con 30.4%. Ambas rodean avenidas de alto tráfico.</p>
+          <div class="callout">Este es un error clásico en análisis de datos: confundir <em>volumen</em> con
+            <em>intensidad</em>. La prevalencia corrige ese sesgo.</div>
+        </div>
+
+        <div class="step" data-step="2">
+          <div class="step-num">04 — Los datos · Experimento natural</div>
+          <h2>La pandemia nos<br>enseñó algo <em class="p">crucial</em></h2>
+          <p>En 2020, las restricciones de movilidad por COVID-19 vaciaron las calles de Bogotá. El resultado fue
+            inmediato y contundente.</p>
+          <div class="stat-hl p">−66<sup>%</sup></div>
+          <p>Los casos de afectación por ruido cayeron un <strong>66% respecto a 2019</strong>. Al regresar el tráfico,
+            los casos volvieron a subir casi exactamente al mismo ritmo.</p>
+          <p>Esto demuestra que el daño <strong>no es permanente</strong>: si se reduce el ruido del tráfico, la salud
+            mejora.</p>
+          <div class="callout purple">Esta reversibilidad convierte al ruido urbano en un problema de <strong>política
+              pública de movilidad</strong>, no solo de salud individual.</div>
+        </div>
+
+        <div class="step" data-step="3">
+          <div class="step-num">04 — Los datos · Comparativa</div>
+          <h2>El <em class="b">mismo ruido</em>,<br>distinto daño</h2>
+          <p>La prevalencia general de los adultos (25.4%) casi <strong>dobla</strong> la de los adolescentes (14.9%).
+            Pero ese número esconde algo más preocupante.</p>
+          <p>Los <strong>adultos</strong> pagan el ruido con insomnio: el 8.7% reporta somnolencia diurna crónica, que
+            con el tiempo eleva el riesgo cardiovascular.</p>
+          <p>Los <strong>adolescentes</strong> usan audífonos para escapar: el 72.4% los usa habitualmente. Según la
+            OMS, subir el volumen para tapar el tráfico produce el mismo daño auditivo — y ese sí es
+            <strong>permanente</strong>.</p>
+          <div class="callout blue">El radar muestra cinco indicadores de riesgo. Los perfiles son casi opuestos:
+            adultos → sueño; adolescentes → oído.</div>
+        </div>
+
+      </div>
+
+      <div class="sticky-visual">
+        <div class="visual-stage">
+
+          <div class="v-panel active" id="panel-map">
+            <div class="map-wrap">
+              <div id="leaf-map"></div>
+              <div class="map-legend">
+                <span>Baja</span>
+                <div class="leg-grad"></div><span>Alta prevalencia</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="v-panel" id="panel-line">
+            <div class="chart-panel">
+              <div class="chart-title">Casos totales por año</div>
+              <div class="chart-sub">Adultos y adolescentes · 2019–2025</div>
+              <div class="chart-canvas-wrap" style="position:relative">
+                <div class="pandemic-badge">🦠 2020 — Pandemia COVID-19</div>
+                <canvas id="chartLine"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <div class="v-panel" id="panel-radar">
+            <div class="chart-panel">
+              <div class="chart-title">Perfil de riesgo comparado</div>
+              <div class="chart-sub">Cinco indicadores · Adultos vs. Adolescentes</div>
+              <div class="chart-canvas-wrap"><canvas id="chartRadar"></canvas></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. CONCLUSIONES -->
+  <section class="outro" id="conclusiones">
+    <div class="section-label" style="margin-bottom:16px">05 — Conclusiones</div>
+    <h2>¿Qué nos dice<br>todo <em>esto</em>?</h2>
+    <div class="conclusions">
+      <div class="concl"><span class="concl-icon">👤</span>
+        <div class="concl-title">1 de cada 4 adultos afectados</div>
+        <p class="concl-text">El ruido ambiental afecta al 25.4% de adultos y al 14.9% de adolescentes. Un problema
+          amplio, sostenido y medible.</p>
+      </div>
+      <div class="concl"><span class="concl-icon">🚗</span>
+        <div class="concl-title">Menos tráfico = menos enfermos</div>
+        <p class="concl-text">La pandemia lo demostró: la caída del 66% en casos fue directamente proporcional a la
+          reducción del tráfico. El daño es reversible.</p>
+      </div>
+      <div class="concl"><span class="concl-icon">📍</span>
+        <div class="concl-title">Barrios Unidos y Teusaquillo</div>
+        <p class="concl-text">Al medir prevalencia (no volumen), estas localidades resultan ser las más vulnerables,
+          superando incluso a Suba en riesgo relativo.</p>
+      </div>
+      <div class="concl"><span class="concl-icon">🎧</span>
+        <div class="concl-title">Los audífonos no son la solución</div>
+        <p class="concl-text">El 72% de los adolescentes usa audífonos para escapar del ruido. Según la OMS, esto los
+          expone a pérdida auditiva prematura y permanente.</p>
+      </div>
+    </div>
+    <div class="credits">
+      <div class="credits-left">
+        <div class="label">Autores</div>
+        <p>Jhon Alejandro Correal Martínez<br>Rafael Andrés Guzmán Rodríguez<br>Profesor: Elias Buitrago
+          Bolivar<br>Electiva Técnica II — Ciencia de Datos · 2026</p>
+      </div>
+      <div class="credits-left">
+        <div class="label">Fuentes</div>
+        <p><a href="https://saludata.saludcapital.gov.co/" target="_blank">SaluData — Secretaría Distrital de
+            Salud</a><br>SIVIGILA D.C. · Ficha SDS-ICI-FT-001<br><a
+            href="https://www.who.int/initiatives/making-listening-safe" target="_blank">OMS — Escuchar sin riesgos</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    /* ── DATA ─────────────────────────────────────────────── */
+    const LOC_DATA = {
+      usaquen: { name: 'Usaquén', prev: 24.8, casos: 380 }, chapinero: { name: 'Chapinero', prev: 26.7, casos: 155 },
+      santafe: { name: 'Santa Fe', prev: 20.3, casos: 140 }, sancristobal: { name: 'San Cristóbal', prev: 16.1, casos: 130 },
+      usme: { name: 'Usme', prev: 15.8, casos: 270 }, tunjuelito: { name: 'Tunjuelito', prev: 17.9, casos: 115 },
+      bosa: { name: 'Bosa', prev: 14.2, casos: 110 }, kennedy: { name: 'Kennedy', prev: 19.6, casos: 350 },
+      fontibon: { name: 'Fontibón', prev: 21.0, casos: 290 }, engativa: { name: 'Engativá', prev: 22.1, casos: 420 },
+      suba: { name: 'Suba', prev: 18.2, casos: 510 }, barriosunidos: { name: 'Barrios Unidos', prev: 33.1, casos: 180 },
+      teusaquillo: { name: 'Teusaquillo', prev: 30.4, casos: 165 }, losmartires: { name: 'Los Mártires', prev: 22.5, casos: 98 },
+      antonionarino: { name: 'Antonio Nariño', prev: 18.4, casos: 85 }, puentearanda: { name: 'Puente Aranda', prev: 19.8, casos: 105 },
+      lacandelaria: { name: 'La Candelaria', prev: 13.6, casos: 42 }, rafaeluribe: { name: 'Rafael Uribe', prev: 14.8, casos: 92 },
+      ciudadbolivar: { name: 'Ciudad Bolívar', prev: 17.3, casos: 320 }, sumapaz: { name: 'Sumapaz', prev: 5.2, casos: 18 },
+    };
+
+    /* ── GEOJSON — IDECA-based real boundaries ────────────── */
+    function getLocId(name) {
+      if (!name) return '';
+      let id = name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z]/g, '');
+      if (id === 'rafaeluribeuribe') id = 'rafaeluribe';
+      if (id === 'candelaria') id = 'lacandelaria';
+      return id;
+    }
+
+    /* ── COLORS ───────────────────────────────────────────── */
+    const MAX_PREV = 35;
+    function prevColor(p) { const t = Math.min(p / MAX_PREV, 1); return `rgb(${Math.round(27 + t * 222)},${Math.round(58 + t * 57)},${Math.round(107 - t * 85)})` }
+
+    /* ── LEAFLET — fully static ───────────────────────────── */
+    const leafMap = L.map('leaf-map', {
+      zoomControl: false, scrollWheelZoom: false, doubleClickZoom: false,
+      dragging: false, touchZoom: false, boxZoom: false, keyboard: false, attributionControl: true,
+      zoomSnap: 0.1
+    }).setView([4.66, -74.11], 10.8);
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png', {
+      attribution: '© <a href="https://www.openstreetmap.org/copyright">OSM</a> © <a href="https://carto.com/">CARTO</a>',
+      subdomains: 'abcd', maxZoom: 14, opacity: 0.45,
+    }).addTo(leafMap);
+
+    let geoLayer = null;
+    function makeStyle(feat, dim = false) {
+      const id = feat.properties.LocNombre ? getLocId(feat.properties.LocNombre) : feat.id;
+      const d = LOC_DATA[id], p = d ? d.prev : 10;
+      return dim
+        ? { fillColor: '#111825', fillOpacity: .65, color: 'rgba(255,255,255,.04)', weight: .4 }
+        : { fillColor: prevColor(p), fillOpacity: .82, color: 'rgba(255,255,255,.22)', weight: 1.1 };
+    }
+
+    fetch('localidades.geojson')
+      .then(r => r.json())
+      .then(data => {
+        geoLayer = L.geoJSON(data, {
+          style: f => makeStyle(f),
+          onEachFeature(feat, layer) {
+            const id = feat.properties.LocNombre ? getLocId(feat.properties.LocNombre) : feat.id;
+            const d = LOC_DATA[id];
+            if (!d) return;
+            layer.bindTooltip(
+              `<div class="lt-name">${d.name}</div>
+           <div class="lt-row"><span>Prevalencia</span><span>${d.prev}%</span></div>
+           <div class="lt-row"><span>Casos totales</span><span>${d.casos.toLocaleString()}</span></div>`,
+              { className: 'leaf-tip', sticky: true, offset: [14, 0], direction: 'right' }
+            );
+            layer.on('mouseover', function () { this.setStyle({ weight: 2.5, color: 'rgba(255,255,255,.6)', fillOpacity: .96 }); this.bringToFront() });
+            layer.on('mouseout', function () { geoLayer.resetStyle(this) });
+          }
+        }).addTo(leafMap);
+
+        // Apply current visual step if user scrolled fast
+        if (curStep === 0) mapNormal();
+        else if (curStep === 1) mapHighlight();
+      })
+      .catch(err => console.error('Error loading geojson:', err));
+
+    /* El zoom y centro se configuraron manualmente en L.map (setView) para evitar problemas de cálculo dinámico. */
+
+    function mapNormal() { 
+      if (!geoLayer) return;
+      geoLayer.eachLayer(l => l.setStyle(makeStyle(l.feature))) 
+    }
+    function mapHighlight() {
+      if (!geoLayer) return;
+      const H = new Set(['barriosunidos', 'teusaquillo']);
+      geoLayer.eachLayer(l => {
+        const id = l.feature.properties.LocNombre ? getLocId(l.feature.properties.LocNombre) : l.feature.id;
+        const h = H.has(id);
+        l.setStyle(h ? { fillColor: '#f97316', fillOpacity: .96, color: '#f97316', weight: 2.5 } : makeStyle(l.feature, true));
+        if (l._path) l._path.style.filter = h ? 'drop-shadow(0 0 8px rgba(249,115,22,.7))' : 'none';
+        if (h) l.bringToFront();
+      });
+    }
+
+    /* ── CHARTS ───────────────────────────────────────────── */
+    Chart.defaults.color = '#5a6480';
+    Chart.defaults.font.family = "'DM Sans',sans-serif";
+    const gc = 'rgba(255,255,255,.05)';
+    const tc = { backgroundColor: 'rgba(8,9,15,.96)', borderColor: 'rgba(249,115,22,.3)', borderWidth: 1, padding: 12, titleColor: '#dde2ef', bodyColor: '#5a6480' };
+    const pb = { id: 'pb', beforeDraw(c) { const { ctx, chartArea: { top, bottom }, scales: { x } } = c; const x0 = x.getPixelForValue(1), xw = (x.getPixelForValue(2) - x.getPixelForValue(1)) * .5; ctx.save(); ctx.fillStyle = 'rgba(167,139,250,.07)'; ctx.fillRect(x0 - xw, top, xw * 2, bottom - top); ctx.restore() } };
+
+    new Chart(document.getElementById('chartLine'), {
+      type: 'line', plugins: [pb],
+      data: {
+        labels: [2019, 2020, 2021, 2022, 2023, 2024, 2025], datasets: [
+          {
+            label: 'Adultos', data: [1200, 410, 710, 750, 720, 680, null], borderColor: '#4f8ef7',
+            backgroundColor: ctx => { const g = ctx.chart.ctx.createLinearGradient(0, 0, 0, 280); g.addColorStop(0, 'rgba(79,142,247,.18)'); g.addColorStop(1, 'rgba(79,142,247,0)'); return g },
+            fill: true, tension: .45, pointRadius: 5, pointHoverRadius: 9, borderWidth: 2.5, pointBackgroundColor: '#4f8ef7', spanGaps: false
+          },
+          {
+            label: 'Adolescentes', data: [620, 210, 400, 420, 390, 360, 90], borderColor: '#f97316',
+            backgroundColor: ctx => { const g = ctx.chart.ctx.createLinearGradient(0, 0, 0, 280); g.addColorStop(0, 'rgba(249,115,22,.13)'); g.addColorStop(1, 'rgba(249,115,22,0)'); return g },
+            fill: true, tension: .45, pointRadius: 5, pointHoverRadius: 9, borderWidth: 2.5, pointBackgroundColor: '#f97316'
+          }
+        ]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false, animation: { duration: 900, easing: 'easeInOutQuart' },
+        plugins: { legend: { position: 'top', labels: { boxWidth: 10, padding: 16 } }, tooltip: tc },
+        scales: { x: { grid: { color: gc }, ticks: { color: '#5a6480' } }, y: { grid: { color: gc }, ticks: { color: '#5a6480' }, title: { display: true, text: 'Casos', color: '#3a4260', font: { size: 11 } } } }
+      }
+    });
+
+    new Chart(document.getElementById('chartRadar'), {
+      type: 'radar',
+      data: {
+        labels: ['Prevalencia\ngeneral', 'Somnolencia\ndiurna', 'Uso de\naudífonos', 'Riesgo\ncardiovascular', 'Riesgo\nauditivo'],
+        datasets: [
+          { label: 'Adultos', data: [25.4, 8.7, 31.4, 65, 20], backgroundColor: 'rgba(79,142,247,.12)', borderColor: '#4f8ef7', borderWidth: 2, pointBackgroundColor: '#4f8ef7', pointRadius: 5, pointHoverRadius: 8 },
+          { label: 'Adolescentes', data: [14.9, 3.2, 72.4, 25, 80], backgroundColor: 'rgba(249,115,22,.10)', borderColor: '#f97316', borderWidth: 2, pointBackgroundColor: '#f97316', pointRadius: 5, pointHoverRadius: 8 }
+        ]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false, animation: { duration: 900, easing: 'easeInOutQuart' },
+        plugins: { legend: { position: 'top', labels: { boxWidth: 10, padding: 16 } }, tooltip: tc },
+        scales: {
+          r: {
+            min: 0, max: 100, grid: { color: 'rgba(255,255,255,.06)' }, angleLines: { color: 'rgba(255,255,255,.06)' },
+            ticks: { backdropColor: 'transparent', color: '#3a4260', font: { size: 10 }, stepSize: 25 }, pointLabels: { color: '#5a6480', font: { size: 11 } }
+          }
+        }
+      }
+    });
+
+    /* ── STATE MACHINE ────────────────────────────────────── */
+    let curStep = -1;
+    const panels = ['panel-map', 'panel-line', 'panel-radar'];
+    function showPanel(id) { panels.forEach(p => document.getElementById(p).classList.toggle('active', p === id)) }
+    function updateVisuals(s) {
+      if (s === curStep) return; curStep = s;
+      if (s === 0) { showPanel('panel-map'); mapNormal(); leafMap.invalidateSize() }
+      else if (s === 1) { showPanel('panel-map'); mapHighlight(); leafMap.invalidateSize() }
+      else if (s === 2) showPanel('panel-line');
+      else if (s === 3) showPanel('panel-radar');
+    }
+
+    /* ── INTERSECTION OBSERVER ────────────────────────────── */
+    const steps = document.querySelectorAll('.step');
+    const io = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) updateVisuals(+e.target.dataset.step) }) }, { threshold: .45, rootMargin: '-10% 0px -10% 0px' });
+    steps.forEach(s => io.observe(s));
+    updateVisuals(0);
+
+    /* ── PROGRESS BAR ─────────────────────────────────────── */
+    window.addEventListener('scroll', () => {
+      document.getElementById('progress-bar').style.width = Math.min(window.scrollY / (document.documentElement.scrollHeight - window.innerHeight) * 100, 100) + '%';
+    }, { passive: true });
+
+    /* ── NAV ACTIVE ───────────────────────────────────────── */
+    const NAV_IDS = ['inicio', 'problema', 'pregunta', 'perfiles', 'datos', 'conclusiones'];
+    const navLinks = document.querySelectorAll('.nav-link');
+    window.addEventListener('scroll', () => {
+      let cur = ''; NAV_IDS.forEach(id => { const el = document.getElementById(id); if (el && window.scrollY >= el.offsetTop - 120) cur = id; });
+      navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + cur));
+    }, { passive: true });
+
+    /* ── RESIZE FIX ───────────────────────────────────────── */
+    window.addEventListener('load', () => { leafMap.invalidateSize(); });
+  </script>
+</body>
+
+</html>
