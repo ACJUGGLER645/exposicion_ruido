@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.383.0/umd/lucide.min.js"></script>
   <style>
     *,
     *::before,
@@ -1321,6 +1322,258 @@
         padding-top: 8px
       }
     }
+
+    /* ── LUCIDE ICON SIZING ── */
+    .ps-icon i[data-lucide] {
+      width: 28px;
+      height: 28px;
+      stroke: var(--accent);
+      stroke-width: 1.8
+    }
+
+    .perfil-avatar i[data-lucide] {
+      width: 28px;
+      height: 28px;
+      stroke: currentColor;
+      stroke-width: 1.6
+    }
+
+    .pir-icon i[data-lucide] {
+      width: 14px;
+      height: 14px;
+      stroke: var(--muted);
+      stroke-width: 2;
+      vertical-align: middle
+    }
+
+    .concl-icon i[data-lucide] {
+      width: 22px;
+      height: 22px;
+      stroke: currentColor;
+      stroke-width: 1.8
+    }
+
+    /* ── SECCIÓN SEXO ── */
+    .sexo-section {
+      padding: 100px 10vw;
+      background: var(--bg2);
+    }
+
+    .sexo-section>.section-label {
+      margin-bottom: 14px
+    }
+
+    .sexo-section>h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 14px;
+    }
+
+    .sexo-section>h2 em {
+      color: var(--green);
+      font-style: normal
+    }
+
+    .sexo-section>.sub-intro {
+      color: var(--muted);
+      max-width: 640px;
+      margin-bottom: 60px;
+      font-size: 1.05rem;
+    }
+
+    .sexo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+
+    .sexo-card {
+      background: var(--bg3);
+      border: 1px solid rgba(255, 255, 255, .06);
+      border-radius: 16px;
+      padding: 32px;
+    }
+
+    .sexo-card-title {
+      font-family: 'Syne', sans-serif;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .sexo-card-title i[data-lucide] {
+      width: 16px;
+      height: 16px;
+      stroke: var(--green)
+    }
+
+    .sexo-bars {
+      display: flex;
+      flex-direction: column;
+      gap: 16px
+    }
+
+    .sexo-bar-row {
+      display: flex;
+      flex-direction: column;
+      gap: 6px
+    }
+
+    .sexo-bar-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: .85rem;
+      color: var(--text);
+    }
+
+    .sexo-bar-label span:last-child {
+      color: var(--muted);
+      font-size: .78rem
+    }
+
+    .sexo-bar-track {
+      height: 8px;
+      background: rgba(255, 255, 255, .06);
+      border-radius: 99px;
+      overflow: hidden;
+    }
+
+    .sexo-bar-fill {
+      height: 100%;
+      border-radius: 99px;
+      transition: width 1.2s cubic-bezier(.22, 1, .36, 1);
+    }
+
+    .fill-blue {
+      background: var(--blue)
+    }
+
+    .fill-green {
+      background: var(--green)
+    }
+
+    .fill-orange {
+      background: var(--accent)
+    }
+
+    .fill-purple {
+      background: var(--purple)
+    }
+
+    .sexo-pie-wrap {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .sexo-pie-labels {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      flex: 1
+    }
+
+    .pie-label-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: .9rem
+    }
+
+    .pie-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0
+    }
+
+    .pie-dot.f {
+      background: var(--purple)
+    }
+
+    .pie-dot.m {
+      background: var(--green)
+    }
+
+    .pie-label-pct {
+      margin-left: auto;
+      font-weight: 600;
+      font-family: 'Syne', sans-serif
+    }
+
+    .pie-label-n {
+      color: var(--muted);
+      font-size: .78rem
+    }
+
+    .sexo-note {
+      margin-top: 16px;
+      font-size: .75rem;
+      color: var(--dim);
+      font-style: italic;
+      border-left: 2px solid var(--dim);
+      padding-left: 10px;
+    }
+
+    .edad-bars {
+      display: flex;
+      flex-direction: column;
+      gap: 10px
+    }
+
+    .edad-bar-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: .82rem
+    }
+
+    .edad-label {
+      width: 28px;
+      color: var(--muted);
+      text-align: right;
+      flex-shrink: 0
+    }
+
+    .edad-track {
+      flex: 1;
+      height: 7px;
+      background: rgba(255, 255, 255, .06);
+      border-radius: 99px;
+      overflow: hidden
+    }
+
+    .edad-fill {
+      height: 100%;
+      border-radius: 99px;
+      background: var(--accent);
+      transition: width 1.2s cubic-bezier(.22, 1, .36, 1)
+    }
+
+    .edad-pct {
+      width: 42px;
+      text-align: right;
+      color: var(--text);
+      font-size: .8rem
+    }
+
+    @media (max-width: 768px) {
+      .sexo-grid {
+        grid-template-columns: 1fr
+      }
+
+      .sexo-section {
+        padding: 70px 6vw
+      }
+    }
   </style>
 </head>
 
@@ -1334,6 +1587,7 @@
       <a class="nav-link" href="#problema">Problema</a>
       <a class="nav-link" href="#pregunta">Pregunta</a>
       <a class="nav-link" href="#perfiles">Perfiles</a>
+      <a class="nav-link" href="#sexo">Sexo &amp; edad</a>
       <a class="nav-link" href="#datos">Datos</a>
       <a class="nav-link" href="#conclusiones">Conclusiones</a>
     </div>
@@ -1391,14 +1645,14 @@
         </div>
         <div class="problema-visual">
           <div class="problema-stat">
-            <div class="ps-icon">🏙️</div>
+            <div class="ps-icon"><i data-lucide="map-pin"></i></div>
             <div>
               <div class="ps-num">20</div>
               <div class="ps-label">localidades monitoreadas en el Distrito Capital</div>
             </div>
           </div>
           <div class="problema-stat">
-            <div class="ps-icon">📋</div>
+            <div class="ps-icon"><i data-lucide="clipboard-list"></i></div>
             <div>
               <div class="ps-num">31,882</div>
               <div class="ps-label">encuestas en hogares entre 2019 y 2025.(11,780 mujeres, 4,556 hombres y 15,546
@@ -1406,7 +1660,7 @@
             </div>
           </div>
           <div class="problema-stat">
-            <div class="ps-icon">⚠️</div>
+            <div class="ps-icon"><i data-lucide="alert-triangle"></i></div>
             <div>
               <div class="ps-num" style="color:var(--red)">3+ síntomas</div>
               <div class="ps-label">criterio para contar a alguien como caso afectado</div>
@@ -1455,17 +1709,17 @@
         <!-- Adolescente -->
         <div class="perfil-card adolescente">
           <div class="perfil-header">
-            <div class="perfil-avatar adol-m">🎧</div>
+            <div class="perfil-avatar adol-m"><i data-lucide="headphones"></i></div>
             <div class="perfil-meta">
               <div class="perfil-name">Adolescentes</div>
               <span class="perfil-tag adolescente">● 11 a 17 años</span>
             </div>
           </div>
           <div class="perfil-body">
-            <div class="perfil-info-row"><span class="pir-icon">📍</span><span class="pir-label">Datos</span><span
-                class="pir-val">n=2,327 casos de 15,546 encuestados</span></div>
-            <div class="perfil-info-row"><span class="pir-icon">📋</span><span class="pir-label">Fuente</span><span
-                class="pir-val">SIVIGILA D.C. 2019–2025</span></div>
+            <div class="perfil-info-row"><span class="pir-icon"><i data-lucide="database"></i></span><span
+                class="pir-label">Datos</span><span class="pir-val">n=2,327 casos de 15,546 encuestados</span></div>
+            <div class="perfil-info-row"><span class="pir-icon"><i data-lucide="file-text"></i></span><span
+                class="pir-label">Fuente</span><span class="pir-val">SIVIGILA D.C. 2019–2025</span></div>
             <div class="perfil-sintomas">
               <div class="sint-title">Indicadores Principales</div>
               <div class="sint-chips">
@@ -1484,7 +1738,7 @@
           <img src="familia.png" alt="Adolescente y Adulta"
             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="img-placeholder" style="display:none">
-            <span>👥</span>
+            <span><i data-lucide="users" style="width:48px;height:48px;color:var(--dim)"></i></span>
             <p>familia.png</p>
           </div>
         </div>
@@ -1492,17 +1746,18 @@
         <!-- Adulto -->
         <div class="perfil-card">
           <div class="perfil-header">
-            <div class="perfil-avatar adulto-f">👩</div>
+            <div class="perfil-avatar adulto-f"><i data-lucide="user"></i></div>
             <div class="perfil-meta">
               <div class="perfil-name">Adultos</div>
               <span class="perfil-tag adulto">● 18 a 64 años</span>
             </div>
           </div>
           <div class="perfil-body">
-            <div class="perfil-info-row"><span class="pir-icon">📍</span><span class="pir-label">Datos</span><span
-                class="pir-val">n=4,149 casos de 16,336 (11,780 mujeres, 4,556 hombres)</span></div>
-            <div class="perfil-info-row"><span class="pir-icon">📋</span><span class="pir-label">Fuente</span><span
-                class="pir-val">SIVIGILA D.C. 2019–2025</span></div>
+            <div class="perfil-info-row"><span class="pir-icon"><i data-lucide="database"></i></span><span
+                class="pir-label">Datos</span><span class="pir-val">n=4,149 casos de 16,336 (11,780 mujeres, 4,556
+                hombres)</span></div>
+            <div class="perfil-info-row"><span class="pir-icon"><i data-lucide="file-text"></i></span><span
+                class="pir-label">Fuente</span><span class="pir-val">SIVIGILA D.C. 2019–2025</span></div>
             <div class="perfil-sintomas">
               <div class="sint-title">Indicadores Principales</div>
               <div class="sint-chips">
@@ -1521,6 +1776,226 @@
   </section>
 
   <div class="section-divider"></div>
+
+
+  <div class="section-divider"></div>
+
+  <!-- 04 — ANÁLISIS POR SEXO Y EDAD -->
+  <section id="sexo">
+    <div class="sexo-section">
+      <div class="section-label">04 — Sexo y edad</div>
+      <h2>¿Quiénes están más <em>expuestos</em>?</h2>
+      <p class="sub-intro">El análisis por sexo y edad revela patrones diferenciados: las mujeres adultas acumulan más
+        síntomas clínicos, mientras que en adolescentes el riesgo crece con la edad y el uso de audífonos se vuelve casi
+        universal.</p>
+
+      <div class="sexo-grid">
+
+        <!-- Card 1: Adultos por sexo – prevalencia 4 indicadores -->
+        <div class="sexo-card">
+          <div class="sexo-card-title">
+            <i data-lucide="user-check"></i>
+            Adultos (18–64 años) · Prevalencia por sexo
+          </div>
+          <div class="sexo-bars">
+            <div class="sexo-bar-row">
+              <div class="sexo-bar-label"><span>Alteración de salud</span></div>
+              <div style="display:flex;gap:8px;align-items:center;font-size:.8rem;margin-bottom:4px">
+                <span style="color:var(--blue);min-width:60px">Hombre</span>
+                <div class="sexo-bar-track" style="flex:1">
+                  <div class="sexo-bar-fill fill-blue" style="width:22.7%"></div>
+                </div>
+                <span style="color:var(--muted);min-width:38px;text-align:right">22.7%</span>
+              </div>
+              <div style="display:flex;gap:8px;align-items:center;font-size:.8rem">
+                <span style="color:var(--purple);min-width:60px">Mujer</span>
+                <div class="sexo-bar-track" style="flex:1">
+                  <div class="sexo-bar-fill fill-purple" style="width:26.5%"></div>
+                </div>
+                <span style="color:var(--muted);min-width:38px;text-align:right">26.5%</span>
+              </div>
+            </div>
+            <div class="sexo-bar-row">
+              <div class="sexo-bar-label"><span>Alteración del sueño</span></div>
+              <div style="display:flex;gap:8px;align-items:center;font-size:.8rem;margin-bottom:4px">
+                <span style="color:var(--blue);min-width:60px">Hombre</span>
+                <div class="sexo-bar-track" style="flex:1">
+                  <div class="sexo-bar-fill fill-blue" style="width:28.6%"></div>
+                </div>
+                <span style="color:var(--muted);min-width:38px;text-align:right">28.6%</span>
+              </div>
+              <div style="display:flex;gap:8px;align-items:center;font-size:.8rem">
+                <span style="color:var(--purple);min-width:60px">Mujer</span>
+                <div class="sexo-bar-track" style="flex:1">
+                  <div class="sexo-bar-fill fill-purple" style="width:38.6%"></div>
+                </div>
+                <span style="color:var(--muted);min-width:38px;text-align:right">38.6%</span>
+              </div>
+            </div>
+            <div class="sexo-bar-row">
+              <div class="sexo-bar-label"><span>Somnolencia diurna</span></div>
+              <div style="display:flex;gap:8px;align-items:center;font-size:.8rem;margin-bottom:4px">
+                <span style="color:var(--blue);min-width:60px">Hombre</span>
+                <div class="sexo-bar-track" style="flex:1">
+                  <div class="sexo-bar-fill fill-blue" style="width:8.6%"></div>
+                </div>
+                <span style="color:var(--muted);min-width:38px;text-align:right">8.6%</span>
+              </div>
+              <div style="display:flex;gap:8px;align-items:center;font-size:.8rem">
+                <span style="color:var(--purple);min-width:60px">Mujer</span>
+                <div class="sexo-bar-track" style="flex:1">
+                  <div class="sexo-bar-fill fill-purple" style="width:9.6%"></div>
+                </div>
+                <span style="color:var(--muted);min-width:38px;text-align:right">9.6%</span>
+              </div>
+            </div>
+            <div class="sexo-bar-row">
+              <div class="sexo-bar-label"><span>Uso de audífonos</span></div>
+              <div style="display:flex;gap:8px;align-items:center;font-size:.8rem;margin-bottom:4px">
+                <span style="color:var(--blue);min-width:60px">Hombre</span>
+                <div class="sexo-bar-track" style="flex:1">
+                  <div class="sexo-bar-fill fill-blue" style="width:38.2%"></div>
+                </div>
+                <span style="color:var(--muted);min-width:38px;text-align:right">38.2%</span>
+              </div>
+              <div style="display:flex;gap:8px;align-items:center;font-size:.8rem">
+                <span style="color:var(--purple);min-width:60px">Mujer</span>
+                <div class="sexo-bar-track" style="flex:1">
+                  <div class="sexo-bar-fill fill-purple" style="width:26.3%"></div>
+                </div>
+                <span style="color:var(--muted);min-width:38px;text-align:right">26.3%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Adolescentes por sexo (dashboard) -->
+        <div class="sexo-card">
+          <div class="sexo-card-title">
+            <i data-lucide="headphones"></i>
+            Adolescentes (11–17 años) · Distribución por sexo
+          </div>
+          <div class="sexo-pie-wrap">
+            <svg viewBox="0 0 120 120" width="120" height="120" style="flex-shrink:0">
+              <!-- Femenino 50.67% → 182.4° → path -->
+              <circle cx="60" cy="60" r="50" fill="none" stroke="var(--purple)" stroke-width="22"
+                stroke-dasharray="158.7 157.1" stroke-dashoffset="39.3" transform="rotate(-90 60 60)" />
+              <circle cx="60" cy="60" r="50" fill="none" stroke="var(--green)" stroke-width="22"
+                stroke-dasharray="157.1 158.7" stroke-dashoffset="-119.4" transform="rotate(-90 60 60)" />
+              <circle cx="60" cy="60" r="39" fill="var(--bg3)" />
+            </svg>
+            <div class="sexo-pie-labels">
+              <div class="pie-label-row">
+                <span class="pie-dot f"></span>
+                <span>Femenino</span>
+                <span class="pie-label-pct">50.7%</span>
+              </div>
+              <div class="pie-label-n" style="padding-left:20px;margin-top:-8px">7,877 adolescentes</div>
+              <div class="pie-label-row" style="margin-top:8px">
+                <span class="pie-dot m"></span>
+                <span>Masculino</span>
+                <span class="pie-label-pct">49.3%</span>
+              </div>
+              <div class="pie-label-n" style="padding-left:20px;margin-top:-8px">7,669 adolescentes</div>
+            </div>
+          </div>
+          <p class="sexo-note">Variable no disponible en el CSV. Valores extraídos del dashboard Power BI de SaluData
+            (corte 30/06/2025, n = 15,546).</p>
+        </div>
+
+        <!-- Card 3: Uso de audífonos por edad -->
+        <div class="sexo-card">
+          <div class="sexo-card-title">
+            <i data-lucide="trending-up"></i>
+            Adolescentes · Uso de audífonos por edad (CSV 2019–2025)
+          </div>
+          <div class="edad-bars">
+            <div class="edad-bar-row"><span class="edad-label">11</span>
+              <div class="edad-track">
+                <div class="edad-fill" style="width:57.5%"></div>
+              </div><span class="edad-pct">57.5%</span>
+            </div>
+            <div class="edad-bar-row"><span class="edad-label">12</span>
+              <div class="edad-track">
+                <div class="edad-fill" style="width:64.9%"></div>
+              </div><span class="edad-pct">64.9%</span>
+            </div>
+            <div class="edad-bar-row"><span class="edad-label">13</span>
+              <div class="edad-track">
+                <div class="edad-fill" style="width:69.5%"></div>
+              </div><span class="edad-pct">69.5%</span>
+            </div>
+            <div class="edad-bar-row"><span class="edad-label">14</span>
+              <div class="edad-track">
+                <div class="edad-fill" style="width:73.1%"></div>
+              </div><span class="edad-pct">73.1%</span>
+            </div>
+            <div class="edad-bar-row"><span class="edad-label">15</span>
+              <div class="edad-track">
+                <div class="edad-fill" style="width:76.6%"></div>
+              </div><span class="edad-pct">76.6%</span>
+            </div>
+            <div class="edad-bar-row"><span class="edad-label">16</span>
+              <div class="edad-track">
+                <div class="edad-fill" style="width:76.0%"></div>
+              </div><span class="edad-pct">76.0%</span>
+            </div>
+            <div class="edad-bar-row"><span class="edad-label">17</span>
+              <div class="edad-track">
+                <div class="edad-fill" style="width:80.4%"></div>
+              </div><span class="edad-pct" style="color:var(--accent);font-weight:600">80.4%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4: Alteración de salud por edad -->
+        <div class="sexo-card">
+          <div class="sexo-card-title">
+            <i data-lucide="activity"></i>
+            Adolescentes · Alteración de salud por edad (CSV 2019–2025)
+          </div>
+          <div class="edad-bars">
+            <div class="edad-bar-row"><span class="edad-label">11</span>
+              <div class="edad-track">
+                <div class="edad-fill" style="width:12.8%;background:var(--purple)"></div>
+              </div><span class="edad-pct">12.8%</span>
+            </div>
+            <div class="edad-bar-row"><span class="edad-label">12</span>
+              <div class="edad-track">
+                <div class="edad-fill" style="width:13.7%;background:var(--purple)"></div>
+              </div><span class="edad-pct">13.7%</span>
+            </div>
+            <div class="edad-bar-row"><span class="edad-label">13</span>
+              <div class="edad-track">
+                <div class="edad-fill" style="width:14.0%;background:var(--purple)"></div>
+              </div><span class="edad-pct">14.0%</span>
+            </div>
+            <div class="edad-bar-row"><span class="edad-label">14</span>
+              <div class="edad-track">
+                <div class="edad-fill" style="width:13.1%;background:var(--purple)"></div>
+              </div><span class="edad-pct">13.1%</span>
+            </div>
+            <div class="edad-bar-row"><span class="edad-label">15</span>
+              <div class="edad-track">
+                <div class="edad-fill" style="width:15.4%;background:var(--purple)"></div>
+              </div><span class="edad-pct">15.4%</span>
+            </div>
+            <div class="edad-bar-row"><span class="edad-label">16</span>
+              <div class="edad-track">
+                <div class="edad-fill" style="width:18.7%;background:var(--purple)"></div>
+              </div><span class="edad-pct">18.7%</span>
+            </div>
+            <div class="edad-bar-row"><span class="edad-label">17</span>
+              <div class="edad-track">
+                <div class="edad-fill" style="width:19.8%;background:var(--purple)"></div>
+              </div><span class="edad-pct" style="color:var(--purple);font-weight:600">19.8%</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
 
   <!-- 4. SCROLLYTELLING -->
   <div class="scrolly-section" id="datos">
@@ -1615,7 +2090,9 @@
               <div class="chart-title">Casos de alteración de salud por exposición a ruido</div>
               <div class="chart-sub">Adultos y adolescentes · 2019–2025</div>
               <div class="chart-canvas-wrap" style="position:relative">
-                <div class="pandemic-badge">🦠 2020 — Pandemia COVID-19</div>
+                <div class="pandemic-badge"><i data-lucide="virus"
+                    style="width:14px;height:14px;display:inline-block;vertical-align:middle;margin-right:5px"></i>2020
+                  — Pandemia COVID-19</div>
                 <canvas id="chartLine"></canvas>
               </div>
             </div>
@@ -1639,24 +2116,24 @@
     <div class="section-label" style="margin-bottom:16px">05 — Conclusiones</div>
     <h2>¿Qué nos dice<br>todo <em>esto</em>?</h2>
     <div class="conclusions">
-      <div class="concl"><span class="concl-icon">👤</span>
+      <div class="concl"><span class="concl-icon"><i data-lucide="users"></i></span>
         <div class="concl-title">1 de cada 4 adultos y 1 de cada 7 adolescentes afectados</div>
         <p class="concl-text">De los 31,882 encuestados (11,780 mujeres, 4,556 hombres y 15,546 adolescentes), los
           adultos mostraron mayor proporción de síntomas
           asociados a exposición a ruido. El problema es medible y documentado en todas las localidades.</p>
       </div>
-      <div class="concl"><span class="concl-icon">🚗</span>
+      <div class="concl"><span class="concl-icon"><i data-lucide="car"></i></span>
         <div class="concl-title">Variación temporal asociada al tráfico vehicular</div>
         <p class="concl-text">Los casos cayeron 66% en 2020 durante las restricciones de movilidad, y volvieron a subir
           con el
           regreso del tráfico. Sugiere relación directa entre ambos factores.</p>
       </div>
-      <div class="concl"><span class="concl-icon">📍</span>
+      <div class="concl"><span class="concl-icon"><i data-lucide="map-pin"></i></span>
         <div class="concl-title">Barrios Unidos y Teusaquillo: las zonas más afectadas</div>
         <p class="concl-text">Al mirar cuántos de cada 100 encuestados resultaron afectados —no el total de casos— estas
           dos localidades lideran el riesgo, con 33.1% y 30.4% respectivamente.</p>
       </div>
-      <div class="concl"><span class="concl-icon">🎧</span>
+      <div class="concl"><span class="concl-icon"><i data-lucide="headphones"></i></span>
         <div class="concl-title">Perfiles diferenciados por edad</div>
         <p class="concl-text">Adultos reportan principalmente alteración del sueño; adolescentes uso de audífonos
           (70.1%). Cada grupo muestra vulnerabilidades distintas según la etapa de vida.</p>
@@ -1905,6 +2382,9 @@
 
     /* ── RESIZE FIX ───────────────────────────────────────── */
     window.addEventListener('load', () => { leafMap.invalidateSize(); });
+    /* ── LUCIDE ICONS ── */
+    if (typeof lucide !== 'undefined') lucide.createIcons();
+
   </script>
 </body>
 

@@ -1,0 +1,177 @@
+\documentclass[11pt,a4paper]{article}
+
+% --- Paquetes de Configuración ---
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish, es-tabla]{babel}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{titlesec}
+\usepackage{amsmath}
+\usepackage{enumitem}
+
+% --- Configuración de Títulos ---
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+
+% --- Título del Proyecto ---
+\title{
+    \vspace{-2cm}
+    \textbf{Informe Técnico: Análisis de Prevalencia de Alteraciones de Salud por Ruido Ambiental en Bogotá D.C. (2019-2024)} \\
+    \large Electiva Técnica II (Ciencia de Datos)
+}
+
+\author{
+    \textbf{Nombres de los Integrantes:} \\
+    Jhon Alejandro Correal Martínez\\
+    Rafael Andrés Guzmán Rodríguez \\
+    \vspace{0.3cm}
+    \small Profesor: Elias Buitrago Bolivar MSc.
+}
+
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Contexto del Caso}
+Bogotá D.C. es una de las metrópolis más densamente pobladas de América Latina, lo que conlleva una exposición constante de sus habitantes a niveles elevados de ruido ambiental. Las fuentes principales identificadas son el tráfico vehicular, las actividades comerciales de alto impacto y la construcción de infraestructura. Este fenómeno no solo afecta la audición, sino que genera síntomas extra-auditivos como cefaleas, irritabilidad, ansiedad e interrupciones del ciclo del sueño, impactando la productividad y la salud mental de la población.
+
+\section{Fuente del Dataset}
+Los datos analizados fueron obtenidos del portal de datos abiertos de la Secretaría Distrital de Salud de Bogotá, a través del observatorio \textbf{SaluData}. Los conjuntos de datos corresponden al sistema de vigilancia SIVIGILA y se encuentran disponibles públicamente en: 
+\url{https://saludata.saludcapital.gov.co/osb/indicators/exposicion-ruido-adultos/} y \url{https://saludata.saludcapital.gov.co/osb/indicadores/exposicion-a-ruido-ambiental-en-adolescentes-en-bogota-d-c/}
+
+\section{Descripción del Conjunto de Datos}
+Se procesaron dos archivos principales: \texttt{larrem\_ruido\_adultos.csv} (Población de 18 a 64 años) y \texttt{obs\_ruido\_adolescentes.csv} (Población de 11 a 17 años). El conjunto de datos agregado contiene más de \textbf{2,500 registros consolidados} que representan a más de \textbf{30,000 ciudadanos encuestados}. 
+\begin{itemize}
+    \item \textbf{Variables Categóricas:} Localidad, Sexo, Estrato socioeconómico y Régimen de salud.
+    \item \textbf{Variables Numéricas:} Año de registro, Cantidad de encuestados, Casos de alteración en salud, Casos de somnolencia y Casos de uso de audífonos.
+\end{itemize}
+
+\section{Preparación Básica Realizada}
+El proceso de preparación de datos en Python incluyó:
+\begin{enumerate}
+    \item \textbf{Estandarización de Variables:} Se renombraron columnas heterogéneas (\textit{Año encuesta} vs \textit{Año}) para permitir la fusión de datasets.
+    \item \textbf{Limpieza mediante Expresiones Regulares:} Se detectaron y corrigieron etiquetas duplicadas en el régimen de salud (ej. "1. Contributivo" se unificó con "Contributivo") para evitar sesgos en el análisis de estratos.
+    \item \textbf{Cálculo de Prevalencia (Normalización):} Para realizar comparaciones válidas entre localidades de distinto tamaño poblacional, se calculó el porcentaje de afectación:
+    \[ Prevalencia\ (\%) = \left( \frac{\text{Casos Reportados}}{\text{Población Muestreada}} \right) \times 100 \]
+\end{enumerate}
+
+\section{Visualizaciones e Interpretación de Hallazgos}
+
+\subsection{Representatividad de la Muestra y Magnitud del Impacto}
+Antes de analizar las tendencias porcentuales, es imperativo observar la magnitud absoluta de la población evaluada. La Figura \ref{fig:magnitud} muestra la relación entre el volumen total de ciudadanos encuestados y aquellos en los que se detectaron síntomas clínicos.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{src/grafica_magnitud.png} 
+    \caption{Relación entre Población Muestreada y Casos de Salud Detectados.}
+    \label{fig:magnitud}
+\end{figure}
+
+\textbf{Análisis de Magnitud:} 
+La gráfica evidencia la robustez del sistema de vigilancia epidemiológica de Bogotá. Con una muestra superior a los \textbf{16,000 adultos} y aproximadamente \textbf{15,500 adolescentes}, el estudio adquiere una alta representatividad estadística. 
+
+Se observa que, en términos absolutos, el número de adultos con casos de salud confirmados (aprox. 4,100) es significativamente mayor al de los adolescentes (aprox. 2,200). Este hallazgo inicial sugiere que la cronicidad de la exposición al ruido urbano en la población adulta se traduce en una mayor cantidad de reportes médicos positivos frente a la población joven.
+
+
+\subsection{Dinámica Temporal: El Impacto del Confinamiento}
+La Figura \ref{fig:temporal} ilustra la tendencia de casos absolutos de afectación por ruido a lo largo del periodo de estudio. Se destaca el uso de una franja sombreada para delimitar el año 2020, correspondiente a las restricciones de movilidad por la pandemia.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{src/grafica_temporal.png} 
+    \caption{Casos totales de afectación por año para adultos y adolescentes (2019-2025).}
+    \label{fig:temporal}
+\end{figure}
+
+\textbf{Análisis del Hallazgo:} 
+Se observa un desplome masivo en el reporte de casos durante el año 2020, pasando de aproximadamente 1,200 casos en adultos a menos de 400. Este patrón es idéntico en la población adolescente. La visualización confirma que el ruido ambiental en Bogotá es un fenómeno reversible y dependiente de la actividad urbana; sin embargo, se evidencia una tendencia de recuperación de los síntomas a partir de 2021, lo que sugiere una re-exposición constante de la ciudadanía a niveles sonoros previos a la crisis sanitaria.
+
+
+\subsection{Distribución Geográfica: Focos de Intervención}
+Para identificar los puntos críticos de la ciudad, se realizó un análisis contrastado entre el volumen total de personas afectadas y la tasa de prevalencia por localidad. El resultado de este contraste se presenta en la Figura \ref{fig:localidades}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{src/grafica_localidades.png}
+    \caption{Contraste geográfico: Casos absolutos frente a densidad de prevalencia (\%).}
+    \label{fig:localidades}
+\end{figure}
+
+\textbf{Hallazgo:} 
+Se identificó que localidades como \textbf{Barrios Unidos y Teusaquillo} presentan las prevalencias más altas de la ciudad, superando el promedio distrital. Es fundamental notar que, a pesar de que localidades como \textbf{Suba} registran una mayor cantidad de casos en números absolutos debido a su tamaño poblacional, la \textit{densidad de afectación} es significativamente mayor en el sector centro-norte. Este fenómeno se atribuye a la proximidad de las zonas residenciales con los ejes viales de mayor tráfico y actividad comercial, lo que convierte a estos sectores en los principales focos para intervenciones de mitigación sonora.
+
+
+\subsection{Somnolencia Diurna: Impacto en el Descanso}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{src/grafica_somnolencia.png}
+    \caption{Comparativa de somnolencia diurna reportada.}
+    \label{fig:somnolencia}
+\end{figure}
+\textbf{Hallazgo:} Se encontró que los adultos reportan casi el doble de somnolencia diurna que los adolescentes (8.7\% vs 4.2\%). Esto indica que el ruido ambiental nocturno afecta de manera más severa la arquitectura del sueño en la población en edad productiva.
+
+\subsection{Hábitos de la Población Joven: Aislamiento Auditivo}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{src/grafica_audifonos.png}
+    \caption{Uso de dispositivos de audio personales.}
+    \label{fig:audifonos}
+\end{figure}
+\textbf{Hallazgo:} Un dato crítico es el uso masivo de audífonos en adolescentes, superando el \textbf{70\%}. Se interpreta que los jóvenes utilizan estos dispositivos como un "escudo" o mecanismo de aislamiento frente al ruido externo, lo que paradójicamente incrementa su riesgo de pérdida auditiva futura por exposición directa.
+
+\subsection{Distribución por Sexo en la Población Adulta}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{src/grafica_sexo_adultos.png}
+    \caption{Encuestados, prevalencia por indicador y evolución anual según sexo — Adultos (2019–2024).}
+    \label{fig:sexo_adultos}
+\end{figure}
+
+\textbf{Hallazgo:}
+La muestra adulta presenta una composición marcadamente femenina: \textbf{11,780 mujeres (72.1\%)} frente a \textbf{4,556 hombres (27.9\%)}. Esta diferencia refleja el mayor acceso de las mujeres a los espacios de encuesta (entornos residenciales y centros de salud durante horario diurno) y no necesariamente una mayor exposición al ruido. En términos de prevalencia, las mujeres reportan tasas superiores en \textbf{alteración del sueño} (38.6\% vs.\ 28.6\%) y \textbf{alteración de la salud} (26.5\% vs.\ 22.7\%), mientras que los hombres presentan mayor prevalencia en el \textbf{uso de audífonos} (38.2\% vs.\ 26.3\%). Esto sugiere que los hombres gestionan la exposición al ruido mediante aislamiento auditivo activo, en tanto que las mujeres acumulan síntomas extra-auditivos.
+
+\subsection{Distribución por Sexo y Edad en la Población Adolescente}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{src/grafica_sexo_adol.png}
+    \caption{Distribución por sexo (referencia dashboard SaluData) y prevalencia por edad — Adolescentes (2019–2025).}
+    \label{fig:sexo_adol}
+\end{figure}
+
+\textbf{Nota metodológica:} La variable sexo no se encuentra disponible en el archivo CSV de adolescentes (\texttt{obs\_ruido\_adolescentes\_.csv}). Los valores de distribución corresponden al \textbf{dashboard Power BI de SaluData} (corte 30/06/2025, $n = 15{,}546$) y se incluyen como referencia para contraste.
+
+\textbf{Hallazgo:}
+En adolescentes, la distribución por sexo es prácticamente equitativa: \textbf{50.67\% femenino} y \textbf{49.33\% masculino}. Desde el CSV, el análisis por edad revela una tendencia ascendente clara en el \textbf{uso de audífonos} conforme aumenta la edad: de 57.5\% a los 11 años hasta \textbf{80.4\% a los 17 años}. La \textbf{alteración en salud} también crece con la edad (12.8\% a los 11 años vs.\ 19.8\% a los 17), lo que indica que la exposición acumulada al ruido a través del ciclo escolar genera un deterioro progresivo en la salud extra-auditiva de los jóvenes.
+
+\subsection{Estrato Socioeconómico en Adultos: Encuestados, Prevalencia y Cruce con Sexo}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{src/grafica_estrato.png}
+    \caption{Encuestados, prevalencia por indicador y heatmap estrato $\times$ sexo en adultos.}
+    \label{fig:estrato}
+\end{figure}
+
+\textbf{Hallazgo:}
+La muestra adulta se concentra en los estratos 2 y 3, que representan el \textbf{85.6\%} del total de encuestados, correspondiente al perfil socioeconómico predominante en las zonas de vigilancia. La \textbf{prevalencia de alteración en salud} no sigue un gradiente lineal: el estrato 6 reporta la tasa más alta (34.1\%), seguido de los estratos 1 y 3. Esto sugiere que la exposición al ruido afecta tanto a zonas residenciales de alta densidad comercial (estratos bajos) como a sectores de alta actividad nocturna (estrato alto). El \textbf{uso de audífonos} sí muestra una tendencia clara al alza con el estrato (22.2\% en E1 vs.\ 53.7\% en E6), lo que puede relacionarse con mayor acceso a dispositivos tecnológicos. El heatmap de prevalencia de alteración en salud por estrato y sexo evidencia que las \textbf{mujeres de estrato 6} presentan la mayor tasa de afectación del conjunto (38.5\%), mientras que los hombres de estrato 2 registran la menor (20.3\%).
+
+
+\section{Conclusiones}
+\begin{itemize}
+    \item \textbf{Carga de Salud Pública:} El ruido afecta de manera recurrente a \textbf{1 de cada 4 adultos} en Bogotá, siendo un problema de salud pública crónico.
+    \item \textbf{Sensibilidad por Ciclo de Vida:} Los adultos manifiestan el daño mediante síntomas clínicos (insomnio, cefalea), mientras que los adolescentes lo hacen a través de cambios de comportamiento (uso excesivo de audífonos).
+    \item \textbf{Justificación Técnica:} La visualización permitió identificar que la reducción del tráfico vehicular en 2020 es la intervención más efectiva para mejorar la salud auditiva ciudadana.
+    \item \textbf{Recomendación:} Se requiere una política de salud diferenciada: higiene del sueño para adultos y campañas de audición segura en colegios para adolescentes.
+\end{itemize}
+
+\end{document}
