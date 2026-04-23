@@ -1040,6 +1040,13 @@
       background: linear-gradient(90deg, #1b3a6b, #f97316)
     }
 
+    .leg-grad-casos {
+      width: 130px;
+      height: 6px;
+      border-radius: 3px;
+      background: linear-gradient(90deg, #1b3a6b, #4f8ef7)
+    }
+
     /* CHARTS */
     .chart-panel {
       width: 100%;
@@ -1504,31 +1511,35 @@
       <div class="scroll-text">
 
         <div class="step" data-step="0">
-          <div class="step-num">04 — Los datos · Panorama</div>
-          <h2>Distribución geográfica de<br>la <em class="o">prevalencia</em> de casos</h2>
-          <p>El mapa presenta la prevalencia de casos por localidad: el porcentaje de personas encuestadas que reportaron
-            3 o más síntomas relacionados con exposición a ruido ambiental en simultáneo.</p>
-          <p>Los tonos más cálidos (naranjos) indican mayor prevalencia. Los datos se obtuvieron de encuestas
-            sistemáticas en hogares realizadas entre 2019 y 2025.</p>
-          <div class="callout">Fuente: Sistema de Vigilancia Epidemiológica (SIVIGILA D.C.), Secretaría Distrital de Salud
-            de Bogotá. Disponible en <strong>SaluData</strong>.</div>
+          <div class="step-num">04 — Los datos · Mapa de Calor (Volumen)</div>
+          <h2>Distribución geográfica:<br><em class="o">Casos por localidad</em></h2>
+          <p>Este mapa de calor muestra la distribución del volumen bruto de casos. Las zonas más brillantes (azules) indican un mayor número absoluto de personas afectadas por el ruido.</p>
+          <div class="callout">Los datos reflejan a 31,882 encuestados en toda la ciudad entre 2019 y 2025.</div>
         </div>
 
         <div class="step" data-step="1">
-          <div class="step-num">04 — Los datos · Epicentro</div>
-          <h2>Prevalencia vs. casos absolutos:<br><em class="o">Barrios Unidos</em> y <em class="o">Teusaquillo</em></h2>
-          <p><strong>Suba</strong> concentra el mayor número de casos totales (510), pero esto refleja su mayor población.
-            Al analizar prevalencia (porcentaje de personas afectadas sobre el total encuestado), el ranking cambia.</p>
-          <p>La prevalencia permite identificar localidades con mayor riesgo relativo, independiente del tamaño
-            poblacional.</p>
-          <div class="stat-hl o">33.1<sup>%</sup></div>
-          <p><strong>Barrios Unidos</strong> presenta la mayor prevalencia (33.1% de 180 casos sobre total encuestado).
-            <strong>Teusaquillo</strong> le sigue con 30.4%. Ambas están expuestas a alto volumen de tráfico vehicular.</p>
-          <div class="callout">La prevalencia es el indicador epidemiológico apropiado para comparación entre poblaciones
-            de diferentes tamaños.</div>
+          <div class="step-num">04 — Los datos · Top 3 (Volumen)</div>
+          <h2>Localidades con<br><em class="o">más casos absolutos</em></h2>
+          <p>Al aislar el <strong>Top 3</strong> de localidades con más registros, destacan zonas con alta densidad poblacional. <strong>Suba</strong> (510 casos), <strong>Engativá</strong> (420) y <strong>Usaquén</strong> (380) lideran la lista.</p>
+          <p>Sin embargo, evaluar el impacto solo por volumen puede sesgar la perspectiva hacia donde vive más gente.</p>
         </div>
 
         <div class="step" data-step="2">
+          <div class="step-num">04 — Los datos · Mapa de Calor (Prevalencia)</div>
+          <h2>El cambio hacia el<br><em class="o">Riesgo Relativo</em></h2>
+          <p>Cuando ajustamos el análisis calculando la <strong>prevalencia</strong> (el porcentaje de afectados sobre el total de encuestados locales), el panorama térmico de la ciudad cambia de azul a naranja.</p>
+          <p>Las zonas más brillantes ahora representan localidades donde el ruido es más agresivo per cápita.</p>
+        </div>
+
+        <div class="step" data-step="3">
+          <div class="step-num">04 — Los datos · Top 3 (Prevalencia)</div>
+          <h2>Localidades con<br><em class="o">mayor prevalencia</em></h2>
+          <p>El <strong>Top 3</strong> de prevalencia revela el verdadero epicentro del problema. <strong>Barrios Unidos</strong> (33.1%), <strong>Teusaquillo</strong> (30.4%) y <strong>Chapinero</strong> (26.7%) emergen como las zonas más críticas.</p>
+          <p>Estas tres áreas comparten una intensa mezcla de tráfico vehicular, corredores principales y alta actividad comercial.</p>
+          <div class="callout">La prevalencia es el indicador clave: nos dice dónde la exposición constante al ruido enferma a una mayor proporción de la gente.</div>
+        </div>
+
+        <div class="step" data-step="4">
           <div class="step-num">04 — Los datos · Experimento natural</div>
           <h2>Cambios asociados a la<br>reducción de movilidad urbana (2020)</h2>
           <p>En 2020, las restricciones de movilidad por COVID-19 redujeron significativamente el tráfico vehicular en
@@ -1542,7 +1553,7 @@
               entre exposición a ruido y alteraciones de salud reportadas.</div>
         </div>
 
-        <div class="step" data-step="3">
+        <div class="step" data-step="5">
           <div class="step-num">04 — Los datos · Comparativa</div>
           <h2>Perfiles de síntomas por<br>grupo de edad</h2>
           <p>Aunque ambos grupos reportan síntomas asociados a ruido, la prevalencia general difiere: adultos 25.4% vs.
@@ -1662,7 +1673,9 @@
 
     /* ── COLORS ───────────────────────────────────────────── */
     const MAX_PREV = 35;
+    const MAX_CASOS = 510;
     function prevColor(p) { const t = Math.min(p / MAX_PREV, 1); return `rgb(${Math.round(27 + t * 222)},${Math.round(58 + t * 57)},${Math.round(107 - t * 85)})` }
+    function casosColor(c) { const t = Math.min(c / MAX_CASOS, 1); return `rgb(${Math.round(27 + t * 52)},${Math.round(58 + t * 84)},${Math.round(107 + t * 140)})` }
 
     /* ── LEAFLET — fully static ───────────────────────────── */
     const leafMap = L.map('leaf-map', {
@@ -1676,12 +1689,12 @@
     }).addTo(leafMap);
 
     let geoLayer = null;
-    function makeStyle(feat, dim = false) {
+    function makeStyle(feat, dim = false, mode = 'prev') {
       const id = feat.properties.LocNombre ? getLocId(feat.properties.LocNombre) : feat.id;
-      const d = LOC_DATA[id], p = d ? d.prev : 10;
-      return dim
-        ? { fillColor: '#111825', fillOpacity: .65, color: 'rgba(255,255,255,.04)', weight: .4 }
-        : { fillColor: prevColor(p), fillOpacity: .82, color: 'rgba(255,255,255,.22)', weight: 1.1 };
+      const d = LOC_DATA[id];
+      const val = d ? (mode === 'prev' ? d.prev : d.casos) : 0;
+      if (dim) return { fillColor: '#111825', fillOpacity: .65, color: 'rgba(255,255,255,.04)', weight: .4 };
+      return { fillColor: mode === 'prev' ? prevColor(val) : casosColor(val), fillOpacity: .82, color: 'rgba(255,255,255,.22)', weight: 1.1 };
     }
 
     fetch('./localidades.geojson')
@@ -1705,27 +1718,51 @@
         }).addTo(leafMap);
 
         // Apply current visual step if user scrolled fast
-        if (curStep === 0) mapNormal();
-        else if (curStep === 1) mapHighlight();
+        if (curStep === 0) mapNormalCasos();
+        else if (curStep === 1) mapCasesHighlight();
+        else if (curStep === 2) mapNormalPrev();
+        else if (curStep === 3) mapPrevHighlight();
       })
       .catch(err => console.error('Error loading geojson:', err));
 
     /* El zoom y centro se configuraron manualmente en L.map (setView) para evitar problemas de cálculo dinámico. */
 
-    function mapNormal() { 
+    function mapNormalCasos() { 
       if (!geoLayer) return;
-      geoLayer.eachLayer(l => l.setStyle(makeStyle(l.feature))) 
+      geoLayer.eachLayer(l => l.setStyle(makeStyle(l.feature, false, 'casos')));
+      document.querySelector('.map-legend').innerHTML = '<span>Pocos casos</span><div class="leg-grad-casos"></div><span>Muchos casos absolutos</span>';
     }
-    function mapHighlight() {
+
+    function mapCasesHighlight() {
       if (!geoLayer) return;
-      const H = new Set(['barriosunidos', 'teusaquillo']);
+      const H = new Set(['suba', 'engativa', 'usaquen']);
       geoLayer.eachLayer(l => {
         const id = l.feature.properties.LocNombre ? getLocId(l.feature.properties.LocNombre) : l.feature.id;
         const h = H.has(id);
-        l.setStyle(h ? { fillColor: '#f97316', fillOpacity: .96, color: '#f97316', weight: 2.5 } : makeStyle(l.feature, true));
+        l.setStyle(h ? { fillColor: '#4f8ef7', fillOpacity: .85, color: '#4f8ef7', weight: 2.5 } : makeStyle(l.feature, true, 'casos'));
+        if (l._path) l._path.style.filter = h ? 'drop-shadow(0 0 8px rgba(79,142,247,.6))' : 'none';
+        if (h) l.bringToFront();
+      });
+      document.querySelector('.map-legend').innerHTML = '<span>Top 3: Mayor número de casos absolutos</span>';
+    }
+    
+    function mapNormalPrev() { 
+      if (!geoLayer) return;
+      geoLayer.eachLayer(l => l.setStyle(makeStyle(l.feature, false, 'prev')));
+      document.querySelector('.map-legend').innerHTML = '<span>Baja prevalencia</span><div class="leg-grad"></div><span>Alta prevalencia (%)</span>';
+    }
+
+    function mapPrevHighlight() {
+      if (!geoLayer) return;
+      const H = new Set(['barriosunidos', 'teusaquillo', 'chapinero']);
+      geoLayer.eachLayer(l => {
+        const id = l.feature.properties.LocNombre ? getLocId(l.feature.properties.LocNombre) : l.feature.id;
+        const h = H.has(id);
+        l.setStyle(h ? { fillColor: '#f97316', fillOpacity: .96, color: '#f97316', weight: 2.5 } : makeStyle(l.feature, true, 'prev'));
         if (l._path) l._path.style.filter = h ? 'drop-shadow(0 0 8px rgba(249,115,22,.7))' : 'none';
         if (h) l.bringToFront();
       });
+      document.querySelector('.map-legend').innerHTML = '<span>Top 3: Localidades con mayor prevalencia</span>';
     }
 
     /* ── CHARTS ───────────────────────────────────────────── */
@@ -1799,10 +1836,12 @@
     function showPanel(id) { panels.forEach(p => document.getElementById(p).classList.toggle('active', p === id)) }
     function updateVisuals(s) {
       if (s === curStep) return; curStep = s;
-      if (s === 0) { showPanel('panel-map'); mapNormal(); leafMap.invalidateSize() }
-      else if (s === 1) { showPanel('panel-map'); mapHighlight(); leafMap.invalidateSize() }
-      else if (s === 2) showPanel('panel-line');
-      else if (s === 3) showPanel('panel-radar');
+      if (s === 0) { showPanel('panel-map'); mapNormalCasos(); leafMap.invalidateSize() }
+      else if (s === 1) { showPanel('panel-map'); mapCasesHighlight(); leafMap.invalidateSize() }
+      else if (s === 2) { showPanel('panel-map'); mapNormalPrev(); leafMap.invalidateSize() }
+      else if (s === 3) { showPanel('panel-map'); mapPrevHighlight(); leafMap.invalidateSize() }
+      else if (s === 4) showPanel('panel-line');
+      else if (s === 5) showPanel('panel-radar');
     }
 
     /* ── INTERSECTION OBSERVER ────────────────────────────── */
