@@ -546,30 +546,30 @@
 
     .perfiles-dual {
       display: grid;
-      grid-template-columns: minmax(280px, 1fr) auto minmax(280px, 1fr);
-      gap: 32px;
+      grid-template-columns: minmax(280px, 1fr) minmax(320px, 480px) minmax(280px, 1fr);
+      gap: 24px;
       align-items: center
     }
 
     .perfil-img-center {
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: flex-end;
       width: 100%;
-      max-width: 320px;
-      aspect-ratio: 3.8 / 5;
+      max-width: 420px;
+      aspect-ratio: 4.5 / 5;
       border-radius: 24px;
       overflow: hidden;
       margin: 0 auto;
-      background: #f8f9fa;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, .4);
+      background: transparent;
+      box-shadow: none;
     }
 
     .perfil-img-center img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      transform: scale(1.45) translateY(6%);
+      object-fit: contain;
+      transform: none;
     }
 
     .img-placeholder {
@@ -1401,14 +1401,8 @@
             <div class="ps-icon">📋</div>
             <div>
               <div class="ps-num">31,882</div>
-              <div class="ps-label">encuestas en hogares entre 2019 y 2025</div>
-            </div>
-          </div>
-          <div class="problema-stat">
-            <div class="ps-icon">👥</div>
-            <div>
-              <div class="ps-num b">31,882</div>
-              <div class="ps-label">11,780 mujeres, 4,556 hombres y 15,546 adolescentes</div>
+              <div class="ps-label">encuestas en hogares entre 2019 y 2025.(11,780 mujeres, 4,556 hombres y 15,546
+                adolescentes)</div>
             </div>
           </div>
           <div class="problema-stat">
@@ -1429,9 +1423,7 @@
   <section id="pregunta">
     <div class="pregunta-section">
       <div class="pregunta-inner">
-        <div class="section-label">02 — Pregunta orientadora</div>
-        <p style="font-size:14px;color:var(--muted);margin-bottom:28px">Antes de explorar los datos, es importante saber
-          qué queremos responder.</p>
+        () <div class="section-label">02 — Pregunta orientadora</div>
         <div class="pregunta-block">
           <div class="pregunta-text">¿Cómo ha cambiado el impacto del <em>ruido ambiental</em> en la salud de los
             bogotanos entre 2019 y 2025, y de qué forma afecta de manera <em>distinta</em> a adultos y adolescentes?
@@ -1470,8 +1462,8 @@
             </div>
           </div>
           <div class="perfil-body">
-            <div class="perfil-info-row"><span class="pir-icon">📍</span><span class="pir-label">Prevalencia</span><span
-                class="pir-val">14.9% — n=2,327 casos de 15,546 encuestados</span></div>
+            <div class="perfil-info-row"><span class="pir-icon">📍</span><span class="pir-label">Datos</span><span
+                class="pir-val">n=2,327 casos de 15,546 encuestados</span></div>
             <div class="perfil-info-row"><span class="pir-icon">📋</span><span class="pir-label">Fuente</span><span
                 class="pir-val">SIVIGILA D.C. 2019–2025</span></div>
             <div class="perfil-sintomas">
@@ -1507,8 +1499,8 @@
             </div>
           </div>
           <div class="perfil-body">
-            <div class="perfil-info-row"><span class="pir-icon">📍</span><span class="pir-label">Prevalencia</span><span
-                class="pir-val">25.4% — n=4,149 casos de 16,336 (11,780 mujeres, 4,556 hombres)</span></div>
+            <div class="perfil-info-row"><span class="pir-icon">📍</span><span class="pir-label">Datos</span><span
+                class="pir-val">n=4,149 casos de 16,336 (11,780 mujeres, 4,556 hombres)</span></div>
             <div class="perfil-info-row"><span class="pir-icon">📋</span><span class="pir-label">Fuente</span><span
                 class="pir-val">SIVIGILA D.C. 2019–2025</span></div>
             <div class="perfil-sintomas">
@@ -1566,7 +1558,8 @@
           <h2>Localidades con<br><em class="o">mayor prevalencia</em></h2>
           <p>El <strong>Top 3</strong> por porcentaje de afectados revela el verdadero epicentro del problema.
             <strong>Barrios Unidos</strong> (33.1%), <strong>Teusaquillo</strong> (30.4%) y <strong>Chapinero</strong>
-            (26.7%) emergen como las zonas más críticas.</p>
+            (26.7%) emergen como las zonas más críticas.
+          </p>
           <p>Estas tres áreas comparten una intensa mezcla de tráfico vehicular, corredores principales y alta actividad
             comercial.</p>
           <div class="callout">La prevalencia es el indicador clave: nos dice dónde la exposición constante al ruido
