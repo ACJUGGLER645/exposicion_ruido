@@ -1,0 +1,941 @@
+﻿Año;LOCALIDAD;EDAD;Adolescentes encuestados;Adolesc_alteraciónensalud;Adolesc_somnolenciadiurna;Adolesc_usodeAudifonos
+2019;Antonio Nariño;11;36;0;0;29
+2019;Antonio Nariño;12;17;1;0;9
+2019;Antonio Nariño;13;25;0;0;21
+2019;Antonio Nariño;14;27;1;0;19
+2019;Antonio Nariño;15;13;2;0;10
+2019;Antonio Nariño;16;10;0;0;9
+2019;Antonio Nariño;17;4;1;0;2
+2019;Barrios Unidos;11;23;7;1;17
+2019;Barrios Unidos;12;22;10;3;20
+2019;Barrios Unidos;13;17;8;2;13
+2019;Barrios Unidos;14;21;9;3;19
+2019;Barrios Unidos;15;20;9;3;17
+2019;Barrios Unidos;16;6;3;1;6
+2019;Barrios Unidos;17;14;4;2;10
+2019;Bosa;11;22;2;1;9
+2019;Bosa;12;30;5;0;21
+2019;Bosa;13;31;3;2;18
+2019;Bosa;14;24;1;0;18
+2019;Bosa;15;14;1;0;9
+2019;Bosa;16;11;2;1;6
+2019;Bosa;17;4;0;0;3
+2019;Candelaria;11;12;0;0;6
+2019;Candelaria;12;12;1;0;8
+2019;Candelaria;13;13;0;1;9
+2019;Candelaria;14;8;0;0;5
+2019;Candelaria;15;10;4;1;7
+2019;Candelaria;16;6;1;1;6
+2019;Candelaria;17;5;0;0;4
+2019;Chapinero;11;20;8;2;13
+2019;Chapinero;12;19;7;0;16
+2019;Chapinero;13;21;4;3;15
+2019;Chapinero;14;24;11;3;19
+2019;Chapinero;15;14;5;4;13
+2019;Chapinero;16;12;5;2;8
+2019;Chapinero;17;5;4;3;3
+2019;Ciudad Bolívar;11;20;6;4;13
+2019;Ciudad Bolívar;12;25;4;1;16
+2019;Ciudad Bolívar;13;22;3;0;15
+2019;Ciudad Bolívar;14;14;2;0;11
+2019;Ciudad Bolívar;15;27;5;5;20
+2019;Ciudad Bolívar;16;17;4;3;13
+2019;Ciudad Bolívar;17;7;2;2;6
+2019;Engativá;11;16;5;0;9
+2019;Engativá;12;27;10;0;19
+2019;Engativá;13;28;13;1;21
+2019;Engativá;14;16;5;2;15
+2019;Engativá;15;16;7;5;16
+2019;Engativá;16;15;4;2;14
+2019;Engativá;17;4;4;0;4
+2019;Fontibón;11;25;9;1;16
+2019;Fontibón;12;20;4;0;14
+2019;Fontibón;13;20;5;0;16
+2019;Fontibón;14;24;8;1;21
+2019;Fontibón;15;18;5;4;17
+2019;Fontibón;16;15;4;0;12
+2019;Fontibón;17;10;3;0;8
+2019;Kennedy;11;26;0;2;19
+2019;Kennedy;12;26;3;0;19
+2019;Kennedy;13;27;6;2;20
+2019;Kennedy;14;26;7;3;20
+2019;Kennedy;15;11;2;1;8
+2019;Kennedy;16;12;5;1;10
+2019;Kennedy;17;4;1;2;4
+2019;Mártires;11;18;5;0;8
+2019;Mártires;12;23;9;1;16
+2019;Mártires;13;18;4;0;13
+2019;Mártires;14;37;9;0;28
+2019;Mártires;15;16;5;0;15
+2019;Mártires;16;15;7;0;10
+2019;Mártires;17;5;1;1;5
+2019;Puente Aranda;11;19;3;0;11
+2019;Puente Aranda;12;24;6;3;19
+2019;Puente Aranda;13;31;7;3;23
+2019;Puente Aranda;14;18;4;2;16
+2019;Puente Aranda;15;16;3;1;11
+2019;Puente Aranda;16;20;11;4;20
+2019;Puente Aranda;17;8;2;1;7
+2019;Rafael Uribe;11;25;10;0;16
+2019;Rafael Uribe;12;22;5;0;16
+2019;Rafael Uribe;13;22;6;2;16
+2019;Rafael Uribe;14;17;3;1;14
+2019;Rafael Uribe;15;26;8;2;24
+2019;Rafael Uribe;16;15;4;0;12
+2019;Rafael Uribe;17;5;0;0;4
+2019;San Cristóbal;11;20;4;1;9
+2019;San Cristóbal;12;29;4;0;21
+2019;San Cristóbal;13;31;3;1;26
+2019;San Cristóbal;14;20;0;0;16
+2019;San Cristóbal;15;17;3;1;14
+2019;San Cristóbal;16;13;6;0;11
+2019;San Cristóbal;17;2;0;0;2
+2019;Santa Fe;11;29;0;0;18
+2019;Santa Fe;12;26;0;0;19
+2019;Santa Fe;13;22;0;1;19
+2019;Santa Fe;14;24;1;1;19
+2019;Santa Fe;15;13;0;0;11
+2019;Santa Fe;16;7;1;0;4
+2019;Santa Fe;17;11;0;1;7
+2019;Suba;11;16;9;0;11
+2019;Suba;12;21;10;2;15
+2019;Suba;13;15;6;3;15
+2019;Suba;14;22;11;1;13
+2019;Suba;15;26;11;4;22
+2019;Suba;16;18;11;2;13
+2019;Suba;17;10;5;2;10
+2019;Teusaquillo;11;25;10;0;22
+2019;Teusaquillo;12;25;11;2;24
+2019;Teusaquillo;13;18;6;0;16
+2019;Teusaquillo;14;8;4;0;8
+2019;Teusaquillo;15;10;3;1;6
+2019;Teusaquillo;16;9;4;1;8
+2019;Teusaquillo;17;1;1;1;1
+2019;Tunjuelito;11;36;8;3;13
+2019;Tunjuelito;12;24;4;1;14
+2019;Tunjuelito;13;19;1;1;15
+2019;Tunjuelito;14;18;5;3;13
+2019;Tunjuelito;15;17;3;1;14
+2019;Tunjuelito;16;12;2;1;11
+2019;Tunjuelito;17;6;1;1;5
+2019;Usaquén;11;16;8;1;14
+2019;Usaquén;12;34;7;2;25
+2019;Usaquén;13;25;8;3;20
+2019;Usaquén;14;23;5;3;21
+2019;Usaquén;15;12;6;2;12
+2019;Usaquén;16;11;7;1;9
+2019;Usaquén;17;2;0;0;2
+2019;Usme;11;17;4;2;10
+2019;Usme;12;30;5;3;19
+2019;Usme;13;19;5;4;13
+2019;Usme;14;22;8;2;16
+2019;Usme;15;25;9;1;15
+2019;Usme;16;18;4;3;13
+2019;Usme;17;1;1;0;1
+2020;Antonio Nariño;11;18;1;0;12
+2020;Antonio Nariño;12;6;1;0;4
+2020;Antonio Nariño;13;11;2;0;7
+2020;Antonio Nariño;14;18;0;0;18
+2020;Antonio Nariño;15;14;1;0;10
+2020;Antonio Nariño;16;9;1;0;7
+2020;Antonio Nariño;17;4;3;0;4
+2020;Barrios Unidos;11;6;1;0;1
+2020;Barrios Unidos;12;10;1;0;7
+2020;Barrios Unidos;13;7;1;0;4
+2020;Barrios Unidos;14;9;2;0;8
+2020;Barrios Unidos;15;14;1;0;11
+2020;Barrios Unidos;16;19;7;1;14
+2020;Barrios Unidos;17;10;1;1;9
+2020;Bosa;11;20;0;0;12
+2020;Bosa;12;26;0;0;16
+2020;Bosa;13;21;0;0;15
+2020;Bosa;14;30;0;0;21
+2020;Bosa;15;25;2;0;21
+2020;Bosa;16;15;0;0;11
+2020;Bosa;17;13;0;0;9
+2020;Candelaria;11;8;0;0;4
+2020;Candelaria;12;6;0;0;6
+2020;Candelaria;13;12;1;1;9
+2020;Candelaria;14;9;0;0;5
+2020;Candelaria;15;6;0;0;6
+2020;Candelaria;16;2;1;0;1
+2020;Candelaria;17;7;1;1;4
+2020;Chapinero;11;8;2;0;5
+2020;Chapinero;12;8;0;0;6
+2020;Chapinero;13;9;0;1;4
+2020;Chapinero;14;8;0;0;6
+2020;Chapinero;15;21;2;0;14
+2020;Chapinero;16;15;3;1;13
+2020;Chapinero;17;10;1;0;7
+2020;Ciudad Bolívar;11;23;1;1;11
+2020;Ciudad Bolívar;12;31;1;0;21
+2020;Ciudad Bolívar;13;27;0;0;19
+2020;Ciudad Bolívar;14;22;1;1;14
+2020;Ciudad Bolívar;15;23;0;1;16
+2020;Ciudad Bolívar;16;14;2;1;11
+2020;Ciudad Bolívar;17;10;4;1;6
+2020;Engativá;11;14;1;0;12
+2020;Engativá;12;24;0;1;22
+2020;Engativá;13;4;0;0;4
+2020;Engativá;14;24;3;2;19
+2020;Engativá;15;31;3;3;24
+2020;Engativá;16;37;7;5;32
+2020;Engativá;17;23;6;2;19
+2020;Fontibón;11;16;1;1;13
+2020;Fontibón;12;27;4;0;20
+2020;Fontibón;13;21;2;0;14
+2020;Fontibón;14;11;1;0;11
+2020;Fontibón;15;14;2;0;10
+2020;Fontibón;16;15;6;0;13
+2020;Fontibón;17;16;1;0;14
+2020;Kennedy;11;20;0;0;13
+2020;Kennedy;12;22;0;0;17
+2020;Kennedy;13;28;0;0;20
+2020;Kennedy;14;23;0;0;18
+2020;Kennedy;15;28;1;0;23
+2020;Kennedy;16;23;1;1;18
+2020;Kennedy;17;11;0;2;9
+2020;Mártires;11;13;0;0;9
+2020;Mártires;12;16;3;0;11
+2020;Mártires;13;11;2;0;7
+2020;Mártires;14;14;2;0;9
+2020;Mártires;15;13;1;0;9
+2020;Mártires;16;9;1;0;5
+2020;Mártires;17;6;3;1;5
+2020;Puente Aranda;11;10;0;0;9
+2020;Puente Aranda;12;15;1;0;14
+2020;Puente Aranda;13;12;0;0;6
+2020;Puente Aranda;14;6;1;0;6
+2020;Puente Aranda;15;11;1;0;10
+2020;Puente Aranda;16;16;0;0;14
+2020;Puente Aranda;17;13;2;0;11
+2020;Rafael Uribe;11;16;1;0;12
+2020;Rafael Uribe;12;17;0;0;13
+2020;Rafael Uribe;13;23;1;0;17
+2020;Rafael Uribe;14;10;0;0;9
+2020;Rafael Uribe;15;16;0;0;11
+2020;Rafael Uribe;16;16;2;0;11
+2020;Rafael Uribe;17;12;1;0;10
+2020;San Cristóbal;11;17;1;0;4
+2020;San Cristóbal;12;19;0;0;10
+2020;San Cristóbal;13;16;1;0;12
+2020;San Cristóbal;14;12;1;0;9
+2020;San Cristóbal;15;20;2;0;18
+2020;San Cristóbal;16;17;2;0;13
+2020;San Cristóbal;17;10;2;0;4
+2020;Santa Fe;11;13;1;1;5
+2020;Santa Fe;12;9;0;0;6
+2020;Santa Fe;13;13;0;0;9
+2020;Santa Fe;14;19;1;0;14
+2020;Santa Fe;15;11;2;0;8
+2020;Santa Fe;16;11;0;0;9
+2020;Santa Fe;17;7;0;0;6
+2020;Suba;11;19;3;1;14
+2020;Suba;12;16;4;0;12
+2020;Suba;13;22;6;0;13
+2020;Suba;14;25;6;2;21
+2020;Suba;15;27;5;0;22
+2020;Suba;16;26;5;0;18
+2020;Suba;17;27;8;1;23
+2020;Teusaquillo;11;4;0;0;2
+2020;Teusaquillo;12;4;1;0;4
+2020;Teusaquillo;13;13;0;0;11
+2020;Teusaquillo;14;12;2;0;8
+2020;Teusaquillo;15;11;1;0;10
+2020;Teusaquillo;16;22;3;0;18
+2020;Teusaquillo;17;9;1;1;7
+2020;Tunjuelito;11;15;1;0;9
+2020;Tunjuelito;12;17;3;0;10
+2020;Tunjuelito;13;17;1;1;11
+2020;Tunjuelito;14;12;1;0;7
+2020;Tunjuelito;15;13;3;0;9
+2020;Tunjuelito;16;16;1;0;12
+2020;Tunjuelito;17;10;1;1;9
+2020;Usaquén;11;11;2;0;6
+2020;Usaquén;12;11;1;0;6
+2020;Usaquén;13;11;3;0;8
+2020;Usaquén;14;10;1;0;5
+2020;Usaquén;15;14;1;0;9
+2020;Usaquén;16;13;3;1;12
+2020;Usaquén;17;12;0;0;10
+2020;Usme;11;24;5;1;12
+2020;Usme;12;26;0;1;17
+2020;Usme;13;16;2;1;8
+2020;Usme;14;19;0;0;12
+2020;Usme;15;18;2;1;13
+2020;Usme;16;12;0;0;8
+2020;Usme;17;4;0;1;3
+2021;Antonio Nariño;11;13;1;1;8
+2021;Antonio Nariño;12;19;3;0;14
+2021;Antonio Nariño;13;18;2;1;11
+2021;Antonio Nariño;14;15;0;0;13
+2021;Antonio Nariño;15;23;5;0;18
+2021;Antonio Nariño;16;14;2;0;11
+2021;Antonio Nariño;17;14;5;0;10
+2021;Barrios Unidos;11;19;4;0;13
+2021;Barrios Unidos;12;13;2;0;6
+2021;Barrios Unidos;13;16;1;2;10
+2021;Barrios Unidos;14;18;5;0;11
+2021;Barrios Unidos;15;14;6;0;10
+2021;Barrios Unidos;16;13;2;1;11
+2021;Barrios Unidos;17;9;1;0;9
+2021;Bosa;11;36;1;2;22
+2021;Bosa;12;31;2;0;21
+2021;Bosa;13;42;1;0;28
+2021;Bosa;14;48;1;0;35
+2021;Bosa;15;34;1;0;26
+2021;Bosa;16;28;0;0;12
+2021;Bosa;17;15;0;0;11
+2021;Candelaria;11;6;2;0;5
+2021;Candelaria;12;13;0;0;9
+2021;Candelaria;13;7;1;0;5
+2021;Candelaria;14;10;1;1;9
+2021;Candelaria;15;4;0;0;3
+2021;Candelaria;16;8;1;0;7
+2021;Candelaria;17;2;1;0;2
+2021;Chapinero;11;13;1;0;6
+2021;Chapinero;12;12;1;0;7
+2021;Chapinero;13;19;5;0;16
+2021;Chapinero;14;15;0;0;10
+2021;Chapinero;15;16;2;0;11
+2021;Chapinero;16;14;1;0;11
+2021;Chapinero;17;13;0;0;10
+2021;Ciudad Bolívar;11;56;12;2;32
+2021;Ciudad Bolívar;12;42;12;1;26
+2021;Ciudad Bolívar;13;50;10;1;34
+2021;Ciudad Bolívar;14;42;9;1;26
+2021;Ciudad Bolívar;15;48;14;2;31
+2021;Ciudad Bolívar;16;34;9;1;26
+2021;Ciudad Bolívar;17;30;12;1;22
+2021;Engativá;11;37;3;0;20
+2021;Engativá;12;30;4;0;20
+2021;Engativá;13;41;3;0;31
+2021;Engativá;14;30;2;0;18
+2021;Engativá;15;31;6;0;21
+2021;Engativá;16;36;9;0;28
+2021;Engativá;17;17;3;0;14
+2021;Fontibón;11;14;0;0;8
+2021;Fontibón;12;14;0;0;10
+2021;Fontibón;13;19;1;0;13
+2021;Fontibón;14;16;1;0;11
+2021;Fontibón;15;18;0;0;13
+2021;Fontibón;16;15;4;1;14
+2021;Fontibón;17;12;1;0;9
+2021;Kennedy;11;47;2;0;25
+2021;Kennedy;12;59;2;0;37
+2021;Kennedy;13;65;5;0;44
+2021;Kennedy;14;59;2;0;46
+2021;Kennedy;15;45;0;0;30
+2021;Kennedy;16;51;1;0;37
+2021;Kennedy;17;18;1;0;15
+2021;Mártires;11;17;3;0;9
+2021;Mártires;12;24;2;0;14
+2021;Mártires;13;13;2;0;10
+2021;Mártires;14;22;3;0;17
+2021;Mártires;15;11;0;0;10
+2021;Mártires;16;10;2;1;8
+2021;Mártires;17;8;4;0;7
+2021;Puente Aranda;11;11;1;0;8
+2021;Puente Aranda;12;20;1;0;15
+2021;Puente Aranda;13;17;2;0;15
+2021;Puente Aranda;14;13;1;0;12
+2021;Puente Aranda;15;15;1;0;15
+2021;Puente Aranda;16;14;1;0;14
+2021;Puente Aranda;17;10;1;0;10
+2021;Rafael Uribe;11;17;2;0;6
+2021;Rafael Uribe;12;22;1;0;13
+2021;Rafael Uribe;13;19;1;0;12
+2021;Rafael Uribe;14;20;2;0;16
+2021;Rafael Uribe;15;16;0;0;11
+2021;Rafael Uribe;16;12;4;0;7
+2021;Rafael Uribe;17;6;1;0;5
+2021;San Cristóbal;11;23;1;0;15
+2021;San Cristóbal;12;23;0;0;13
+2021;San Cristóbal;13;11;0;1;6
+2021;San Cristóbal;14;23;4;1;12
+2021;San Cristóbal;15;19;1;0;14
+2021;San Cristóbal;16;13;2;1;9
+2021;San Cristóbal;17;8;1;0;7
+2021;Santa Fe;11;15;1;0;6
+2021;Santa Fe;12;20;2;0;14
+2021;Santa Fe;13;20;0;0;14
+2021;Santa Fe;14;21;2;0;14
+2021;Santa Fe;15;13;4;1;11
+2021;Santa Fe;16;9;1;0;7
+2021;Santa Fe;17;8;0;0;4
+2021;Suba;11;50;6;4;32
+2021;Suba;12;57;15;4;40
+2021;Suba;13;53;15;1;41
+2021;Suba;14;38;5;3;27
+2021;Suba;15;51;9;5;41
+2021;Suba;16;34;8;2;27
+2021;Suba;17;46;16;5;37
+2021;Teusaquillo;11;15;3;0;12
+2021;Teusaquillo;12;14;2;1;11
+2021;Teusaquillo;13;13;2;1;11
+2021;Teusaquillo;14;13;3;1;11
+2021;Teusaquillo;15;22;6;0;19
+2021;Teusaquillo;16;7;1;0;6
+2021;Teusaquillo;17;15;2;1;11
+2021;Tunjuelito;11;25;1;0;16
+2021;Tunjuelito;12;18;1;1;14
+2021;Tunjuelito;13;25;3;0;20
+2021;Tunjuelito;14;22;4;1;20
+2021;Tunjuelito;15;23;6;1;19
+2021;Tunjuelito;16;23;4;0;18
+2021;Tunjuelito;17;17;2;0;14
+2021;Usaquén;11;19;4;0;11
+2021;Usaquén;12;11;5;0;8
+2021;Usaquén;13;16;3;0;13
+2021;Usaquén;14;17;3;1;14
+2021;Usaquén;15;12;3;1;7
+2021;Usaquén;16;14;2;2;13
+2021;Usaquén;17;10;5;1;7
+2021;Usme;11;20;4;0;10
+2021;Usme;12;24;10;0;17
+2021;Usme;13;26;5;0;17
+2021;Usme;14;24;3;0;17
+2021;Usme;15;28;8;0;23
+2021;Usme;16;16;6;1;10
+2021;Usme;17;6;0;0;5
+2022;Antonio Nariño;11;13;1;0;10
+2022;Antonio Nariño;12;16;0;0;7
+2022;Antonio Nariño;13;17;2;0;14
+2022;Antonio Nariño;14;16;0;0;13
+2022;Antonio Nariño;15;8;0;0;7
+2022;Antonio Nariño;16;6;1;0;6
+2022;Antonio Nariño;17;1;0;0;1
+2022;Barrios Unidos;11;2;1;0;1
+2022;Barrios Unidos;12;2;1;0;1
+2022;Barrios Unidos;13;3;0;0;3
+2022;Barrios Unidos;14;4;1;0;4
+2022;Barrios Unidos;15;8;5;2;8
+2022;Barrios Unidos;16;3;2;0;3
+2022;Barrios Unidos;17;4;1;0;4
+2022;Bosa;11;48;2;0;29
+2022;Bosa;12;56;2;0;38
+2022;Bosa;13;39;3;0;25
+2022;Bosa;14;30;4;0;23
+2022;Bosa;15;29;2;0;21
+2022;Bosa;16;26;2;0;20
+2022;Bosa;17;20;1;0;15
+2022;Candelaria;11;4;0;0;3
+2022;Candelaria;12;8;0;0;4
+2022;Candelaria;13;5;0;0;5
+2022;Candelaria;14;7;1;0;3
+2022;Candelaria;15;9;1;0;8
+2022;Candelaria;16;5;0;0;5
+2022;Candelaria;17;5;1;0;3
+2022;Chapinero;11;2;0;0;1
+2022;Chapinero;12;8;1;0;5
+2022;Chapinero;13;4;0;1;4
+2022;Chapinero;14;7;1;1;6
+2022;Chapinero;15;5;0;1;4
+2022;Chapinero;16;3;1;1;3
+2022;Chapinero;17;2;1;0;1
+2022;Ciudad Bolívar;11;44;3;1;23
+2022;Ciudad Bolívar;12;35;3;0;18
+2022;Ciudad Bolívar;13;41;4;1;27
+2022;Ciudad Bolívar;14;39;4;2;24
+2022;Ciudad Bolívar;15;34;4;1;23
+2022;Ciudad Bolívar;16;21;2;0;16
+2022;Ciudad Bolívar;17;17;3;1;14
+2022;Engativá;11;21;5;2;13
+2022;Engativá;12;26;7;0;18
+2022;Engativá;13;25;3;1;20
+2022;Engativá;14;23;5;2;19
+2022;Engativá;15;23;8;0;22
+2022;Engativá;16;29;5;2;26
+2022;Engativá;17;27;11;2;25
+2022;Fontibón;11;20;1;0;13
+2022;Fontibón;12;16;1;0;11
+2022;Fontibón;13;15;1;0;14
+2022;Fontibón;14;24;2;0;20
+2022;Fontibón;15;19;2;0;16
+2022;Fontibón;16;11;4;0;8
+2022;Fontibón;17;15;4;0;14
+2022;Kennedy;11;40;0;0;26
+2022;Kennedy;12;50;3;1;34
+2022;Kennedy;13;47;8;0;38
+2022;Kennedy;14;56;5;0;44
+2022;Kennedy;15;39;2;0;34
+2022;Kennedy;16;29;2;0;22
+2022;Kennedy;17;38;4;0;33
+2022;Mártires;11;8;1;0;4
+2022;Mártires;12;15;3;0;11
+2022;Mártires;13;11;0;0;8
+2022;Mártires;14;16;2;0;13
+2022;Mártires;15;10;2;0;8
+2022;Mártires;16;10;1;0;7
+2022;Mártires;17;12;1;0;11
+2022;Puente Aranda;11;13;2;0;11
+2022;Puente Aranda;12;12;1;0;8
+2022;Puente Aranda;13;15;1;0;7
+2022;Puente Aranda;14;22;0;0;15
+2022;Puente Aranda;15;16;2;0;16
+2022;Puente Aranda;16;9;1;0;8
+2022;Puente Aranda;17;5;2;0;5
+2022;Rafael Uribe;11;26;0;0;15
+2022;Rafael Uribe;12;23;0;0;11
+2022;Rafael Uribe;13;10;1;0;7
+2022;Rafael Uribe;14;23;0;0;18
+2022;Rafael Uribe;15;23;2;0;19
+2022;Rafael Uribe;16;7;1;0;4
+2022;Rafael Uribe;17;15;5;0;14
+2022;San Cristóbal;11;22;1;0;13
+2022;San Cristóbal;12;29;4;0;22
+2022;San Cristóbal;13;20;0;0;13
+2022;San Cristóbal;14;16;1;0;12
+2022;San Cristóbal;15;23;1;0;17
+2022;San Cristóbal;16;13;2;0;10
+2022;San Cristóbal;17;12;0;1;12
+2022;Santa Fe;11;9;0;0;7
+2022;Santa Fe;12;12;1;0;8
+2022;Santa Fe;13;12;0;0;8
+2022;Santa Fe;14;12;1;0;10
+2022;Santa Fe;15;13;2;0;9
+2022;Santa Fe;16;15;2;0;10
+2022;Santa Fe;17;6;2;0;5
+2022;Suba;11;33;3;0;16
+2022;Suba;12;41;8;2;27
+2022;Suba;13;47;12;0;35
+2022;Suba;14;41;10;5;27
+2022;Suba;15;48;6;2;37
+2022;Suba;16;35;7;7;30
+2022;Suba;17;39;8;1;29
+2022;Teusaquillo;11;3;0;0;2
+2022;Teusaquillo;12;1;0;0;1
+2022;Teusaquillo;13;1;1;0;1
+2022;Teusaquillo;14;2;1;0;2
+2022;Teusaquillo;16;4;2;0;3
+2022;Teusaquillo;17;5;1;0;4
+2022;Tunjuelito;11;19;1;0;7
+2022;Tunjuelito;12;16;1;0;9
+2022;Tunjuelito;13;21;0;0;16
+2022;Tunjuelito;14;12;1;1;9
+2022;Tunjuelito;15;15;0;0;14
+2022;Tunjuelito;16;8;2;0;6
+2022;Tunjuelito;17;8;3;0;7
+2022;Usaquén;11;13;3;0;7
+2022;Usaquén;12;9;2;1;5
+2022;Usaquén;13;14;1;2;10
+2022;Usaquén;14;18;3;0;13
+2022;Usaquén;15;9;1;2;5
+2022;Usaquén;16;9;2;2;7
+2022;Usaquén;17;8;2;0;6
+2022;Usme;11;28;3;0;14
+2022;Usme;12;31;5;1;18
+2022;Usme;13;30;6;1;25
+2022;Usme;14;23;3;1;18
+2022;Usme;15;24;4;2;15
+2022;Usme;16;16;4;1;11
+2022;Usme;17;11;1;0;7
+2023;Antonio Nariño;11;16;0;1;10
+2023;Antonio Nariño;12;12;1;1;8
+2023;Antonio Nariño;13;23;1;0;17
+2023;Antonio Nariño;14;23;1;1;19
+2023;Antonio Nariño;15;15;0;0;9
+2023;Antonio Nariño;16;12;0;1;12
+2023;Antonio Nariño;17;9;1;1;7
+2023;Barrios Unidos;11;8;0;0;3
+2023;Barrios Unidos;12;12;0;0;6
+2023;Barrios Unidos;13;12;1;2;5
+2023;Barrios Unidos;14;14;3;0;10
+2023;Barrios Unidos;15;14;4;4;13
+2023;Barrios Unidos;16;5;3;2;5
+2023;Barrios Unidos;17;4;0;0;2
+2023;Bosa;11;34;4;1;21
+2023;Bosa;12;34;6;1;20
+2023;Bosa;13;34;6;1;26
+2023;Bosa;14;39;6;1;26
+2023;Bosa;15;27;0;0;17
+2023;Bosa;16;26;2;0;19
+2023;Bosa;17;15;5;2;9
+2023;Candelaria;11;5;0;0;2
+2023;Candelaria;12;8;0;0;2
+2023;Candelaria;13;4;1;1;3
+2023;Candelaria;14;7;0;0;7
+2023;Candelaria;15;6;3;0;5
+2023;Candelaria;16;5;0;0;4
+2023;Candelaria;17;6;0;0;5
+2023;Chapinero;11;11;2;0;7
+2023;Chapinero;12;11;3;0;7
+2023;Chapinero;13;13;2;1;8
+2023;Chapinero;14;8;3;0;4
+2023;Chapinero;15;9;1;1;7
+2023;Chapinero;16;8;2;0;6
+2023;Chapinero;17;9;5;1;8
+2023;Ciudad Bolívar;11;29;1;1;17
+2023;Ciudad Bolívar;12;33;3;1;20
+2023;Ciudad Bolívar;13;27;0;2;16
+2023;Ciudad Bolívar;14;37;2;0;26
+2023;Ciudad Bolívar;15;33;2;1;22
+2023;Ciudad Bolívar;16;23;3;1;14
+2023;Ciudad Bolívar;17;16;1;0;13
+2023;Engativá;11;23;8;3;12
+2023;Engativá;12;14;2;1;10
+2023;Engativá;13;31;7;2;17
+2023;Engativá;14;19;7;1;13
+2023;Engativá;15;34;13;6;29
+2023;Engativá;16;24;11;4;18
+2023;Engativá;17;21;12;2;19
+2023;Fontibón;11;21;0;0;14
+2023;Fontibón;12;19;2;0;12
+2023;Fontibón;13;22;2;0;14
+2023;Fontibón;14;7;0;0;6
+2023;Fontibón;15;14;0;0;13
+2023;Fontibón;16;14;2;1;9
+2023;Fontibón;17;12;3;0;11
+2023;Kennedy;11;37;4;0;19
+2023;Kennedy;12;38;5;0;24
+2023;Kennedy;13;44;5;0;32
+2023;Kennedy;14;38;6;1;25
+2023;Kennedy;15;33;5;0;27
+2023;Kennedy;16;37;6;1;28
+2023;Kennedy;17;23;3;0;21
+2023;Mártires;11;24;2;0;14
+2023;Mártires;12;16;2;0;13
+2023;Mártires;13;24;4;0;15
+2023;Mártires;14;10;1;0;8
+2023;Mártires;15;15;1;0;10
+2023;Mártires;16;9;1;0;8
+2023;Mártires;17;6;1;0;6
+2023;Puente Aranda;11;18;4;0;15
+2023;Puente Aranda;12;16;2;0;12
+2023;Puente Aranda;13;18;0;0;12
+2023;Puente Aranda;14;17;1;0;10
+2023;Puente Aranda;15;13;0;0;12
+2023;Puente Aranda;16;17;1;0;14
+2023;Puente Aranda;17;12;1;0;10
+2023;Rafael Uribe;11;28;4;0;20
+2023;Rafael Uribe;12;23;1;0;14
+2023;Rafael Uribe;13;23;3;0;16
+2023;Rafael Uribe;14;9;0;0;6
+2023;Rafael Uribe;15;22;3;0;12
+2023;Rafael Uribe;16;7;3;0;6
+2023;Rafael Uribe;17;9;0;0;7
+2023;San Cristóbal;11;28;0;0;15
+2023;San Cristóbal;12;20;0;0;9
+2023;San Cristóbal;13;23;6;1;16
+2023;San Cristóbal;14;8;0;0;6
+2023;San Cristóbal;15;26;2;0;20
+2023;San Cristóbal;16;16;3;1;8
+2023;San Cristóbal;17;10;1;0;7
+2023;Santa Fe;11;21;2;0;11
+2023;Santa Fe;12;17;1;0;12
+2023;Santa Fe;13;16;1;0;14
+2023;Santa Fe;14;24;2;1;14
+2023;Santa Fe;15;11;0;0;9
+2023;Santa Fe;16;16;1;0;13
+2023;Santa Fe;17;7;2;0;6
+2023;Suba;11;51;18;1;30
+2023;Suba;12;34;13;2;26
+2023;Suba;13;54;15;3;31
+2023;Suba;14;40;12;6;27
+2023;Suba;15;40;12;6;28
+2023;Suba;16;25;7;2;17
+2023;Suba;17;16;3;0;13
+2023;Sumapaz;11;1;0;0;1
+2023;Sumapaz;12;2;0;0;1
+2023;Sumapaz;13;1;0;0;1
+2023;Sumapaz;14;1;1;0;0
+2023;Sumapaz;15;2;0;0;1
+2023;Sumapaz;16;1;0;0;1
+2023;Sumapaz;17;2;1;0;1
+2023;Teusaquillo;11;12;1;0;6
+2023;Teusaquillo;12;8;4;0;6
+2023;Teusaquillo;13;10;1;0;7
+2023;Teusaquillo;14;8;4;1;6
+2023;Teusaquillo;15;8;0;1;6
+2023;Teusaquillo;16;14;5;1;10
+2023;Teusaquillo;17;3;1;1;3
+2023;Tunjuelito;11;13;1;1;4
+2023;Tunjuelito;12;21;1;1;12
+2023;Tunjuelito;13;19;1;2;11
+2023;Tunjuelito;14;20;1;0;15
+2023;Tunjuelito;15;17;4;0;15
+2023;Tunjuelito;16;14;2;0;12
+2023;Tunjuelito;17;8;2;1;6
+2023;Usaquén;11;16;5;0;9
+2023;Usaquén;12;22;5;1;9
+2023;Usaquén;13;16;5;0;13
+2023;Usaquén;14;15;3;2;9
+2023;Usaquén;15;14;3;1;12
+2023;Usaquén;16;12;6;1;7
+2023;Usaquén;17;9;2;1;5
+2023;Usme;11;22;6;0;10
+2023;Usme;12;25;3;1;10
+2023;Usme;13;19;2;1;10
+2023;Usme;14;23;6;0;14
+2023;Usme;15;16;2;0;13
+2023;Usme;16;19;2;1;11
+2023;Usme;17;9;1;0;8
+2024;Antonio Nariño;11;19;2;0;13
+2024;Antonio Nariño;12;14;2;0;9
+2024;Antonio Nariño;13;19;1;0;16
+2024;Antonio Nariño;14;15;1;0;11
+2024;Antonio Nariño;15;22;2;0;16
+2024;Antonio Nariño;16;16;1;0;12
+2024;Antonio Nariño;17;12;3;0;9
+2024;Barrios Unidos;11;11;0;2;5
+2024;Barrios Unidos;12;9;1;2;5
+2024;Barrios Unidos;13;10;2;2;6
+2024;Barrios Unidos;14;7;4;0;6
+2024;Barrios Unidos;15;7;1;1;5
+2024;Barrios Unidos;16;9;1;1;9
+2024;Barrios Unidos;17;6;0;0;5
+2024;Bosa;11;21;2;0;15
+2024;Bosa;12;22;4;0;13
+2024;Bosa;13;31;8;0;18
+2024;Bosa;14;24;3;0;14
+2024;Bosa;15;27;4;0;19
+2024;Bosa;16;18;4;0;14
+2024;Bosa;17;11;5;0;9
+2024;Candelaria;11;7;0;0;5
+2024;Candelaria;12;6;0;0;5
+2024;Candelaria;13;6;0;0;3
+2024;Candelaria;14;8;0;0;5
+2024;Candelaria;15;4;0;0;3
+2024;Candelaria;16;5;1;0;3
+2024;Candelaria;17;4;0;0;2
+2024;Chapinero;11;14;3;0;9
+2024;Chapinero;12;14;2;0;7
+2024;Chapinero;13;20;4;0;14
+2024;Chapinero;14;13;4;1;8
+2024;Chapinero;15;4;0;0;3
+2024;Chapinero;16;9;1;0;6
+2024;Chapinero;17;2;1;0;2
+2024;Ciudad Bolívar;11;47;2;0;23
+2024;Ciudad Bolívar;12;40;2;2;24
+2024;Ciudad Bolívar;13;43;3;1;22
+2024;Ciudad Bolívar;14;29;1;0;21
+2024;Ciudad Bolívar;15;30;5;2;20
+2024;Ciudad Bolívar;16;13;0;0;9
+2024;Ciudad Bolívar;17;17;3;0;9
+2024;Engativá;11;28;8;0;10
+2024;Engativá;12;31;6;2;18
+2024;Engativá;13;39;14;4;22
+2024;Engativá;14;33;3;1;25
+2024;Engativá;15;23;7;1;18
+2024;Engativá;16;28;9;2;21
+2024;Engativá;17;27;6;2;21
+2024;Fontibón;11;20;2;1;13
+2024;Fontibón;12;14;2;0;4
+2024;Fontibón;13;13;2;0;9
+2024;Fontibón;14;12;2;0;10
+2024;Fontibón;15;14;3;0;10
+2024;Fontibón;16;11;0;1;6
+2024;Fontibón;17;1;0;0;1
+2024;Kennedy;11;38;1;0;24
+2024;Kennedy;12;25;2;0;15
+2024;Kennedy;13;42;4;1;30
+2024;Kennedy;14;34;2;0;29
+2024;Kennedy;15;20;3;0;15
+2024;Kennedy;16;22;4;0;18
+2024;Kennedy;17;11;4;0;9
+2024;Mártires;11;15;0;0;7
+2024;Mártires;12;24;1;0;16
+2024;Mártires;13;20;0;0;13
+2024;Mártires;14;23;0;1;15
+2024;Mártires;15;17;0;0;15
+2024;Mártires;16;12;1;0;10
+2024;Mártires;17;16;1;0;13
+2024;Puente Aranda;11;12;3;0;5
+2024;Puente Aranda;12;18;2;0;14
+2024;Puente Aranda;13;15;0;0;9
+2024;Puente Aranda;14;13;1;0;11
+2024;Puente Aranda;15;3;1;0;3
+2024;Puente Aranda;16;8;0;0;6
+2024;Puente Aranda;17;5;0;0;5
+2024;Rafael Uribe;11;16;2;0;6
+2024;Rafael Uribe;12;22;2;0;15
+2024;Rafael Uribe;13;16;1;0;9
+2024;Rafael Uribe;14;16;1;0;8
+2024;Rafael Uribe;15;16;2;0;7
+2024;Rafael Uribe;16;9;2;0;5
+2024;Rafael Uribe;17;13;4;0;11
+2024;San Cristóbal;11;18;2;0;8
+2024;San Cristóbal;12;19;2;0;14
+2024;San Cristóbal;13;19;3;0;12
+2024;San Cristóbal;14;16;1;0;11
+2024;San Cristóbal;15;17;1;0;11
+2024;San Cristóbal;16;10;1;0;8
+2024;San Cristóbal;17;13;1;0;12
+2024;Santa Fe;11;18;0;0;7
+2024;Santa Fe;12;16;0;0;8
+2024;Santa Fe;13;15;1;0;11
+2024;Santa Fe;14;16;0;0;13
+2024;Santa Fe;15;17;0;0;14
+2024;Santa Fe;16;12;0;0;7
+2024;Santa Fe;17;18;0;0;14
+2024;Suba;11;57;10;3;23
+2024;Suba;12;39;5;1;26
+2024;Suba;13;47;8;6;26
+2024;Suba;14;43;4;2;27
+2024;Suba;15;52;7;7;36
+2024;Suba;16;41;14;3;30
+2024;Suba;17;34;7;2;27
+2024;Sumapaz;11;1;0;0;0
+2024;Sumapaz;12;3;0;0;3
+2024;Sumapaz;13;1;1;0;1
+2024;Sumapaz;14;3;0;0;3
+2024;Sumapaz;15;1;0;0;1
+2024;Sumapaz;17;2;0;0;1
+2024;Teusaquillo;11;16;0;0;11
+2024;Teusaquillo;12;10;2;0;5
+2024;Teusaquillo;13;14;3;1;11
+2024;Teusaquillo;14;7;0;0;4
+2024;Teusaquillo;15;9;0;0;7
+2024;Teusaquillo;16;11;1;1;7
+2024;Teusaquillo;17;2;1;0;2
+2024;Tunjuelito;11;21;2;0;11
+2024;Tunjuelito;12;25;1;0;13
+2024;Tunjuelito;13;14;3;0;11
+2024;Tunjuelito;14;25;3;0;19
+2024;Tunjuelito;15;19;2;1;13
+2024;Tunjuelito;16;15;2;1;11
+2024;Tunjuelito;17;11;1;0;8
+2024;Usaquén;11;15;7;0;5
+2024;Usaquén;12;23;5;0;10
+2024;Usaquén;13;22;7;0;14
+2024;Usaquén;14;21;9;3;11
+2024;Usaquén;15;17;6;0;12
+2024;Usaquén;16;14;2;3;9
+2024;Usaquén;17;8;2;0;5
+2024;Usme;11;26;1;0;13
+2024;Usme;12;20;3;0;9
+2024;Usme;13;28;4;1;18
+2024;Usme;14;25;0;1;17
+2024;Usme;15;22;0;0;14
+2024;Usme;16;13;1;0;6
+2024;Usme;17;9;0;0;5
+2025;Antonio Nariño;11;4;0;0;3
+2025;Antonio Nariño;12;10;2;0;6
+2025;Antonio Nariño;13;9;1;0;6
+2025;Antonio Nariño;14;5;1;0;3
+2025;Antonio Nariño;15;7;0;0;6
+2025;Antonio Nariño;16;3;0;0;2
+2025;Antonio Nariño;17;2;0;0;2
+2025;Barrios Unidos;12;4;0;0;1
+2025;Barrios Unidos;13;4;0;0;3
+2025;Barrios Unidos;14;4;0;0;2
+2025;Barrios Unidos;15;4;1;0;4
+2025;Barrios Unidos;17;2;0;0;2
+2025;Bosa;11;3;0;0;2
+2025;Bosa;12;9;3;1;4
+2025;Bosa;13;7;4;0;3
+2025;Bosa;14;16;2;0;11
+2025;Bosa;15;3;0;0;2
+2025;Bosa;16;2;0;0;1
+2025;Bosa;17;2;1;0;2
+2025;Candelaria;11;1;0;0;0
+2025;Candelaria;12;2;0;0;1
+2025;Candelaria;13;2;0;0;2
+2025;Candelaria;14;2;0;0;2
+2025;Candelaria;15;1;0;0;1
+2025;Candelaria;16;2;0;0;2
+2025;Candelaria;17;1;0;0;1
+2025;Chapinero;12;1;0;0;1
+2025;Chapinero;13;4;0;0;3
+2025;Chapinero;14;2;0;0;1
+2025;Chapinero;15;3;2;1;1
+2025;Chapinero;16;1;0;0;1
+2025;Chapinero;17;1;0;0;1
+2025;Ciudad Bolívar;11;8;0;0;4
+2025;Ciudad Bolívar;12;17;2;0;7
+2025;Ciudad Bolívar;13;19;2;0;11
+2025;Ciudad Bolívar;14;16;3;0;11
+2025;Ciudad Bolívar;15;8;0;0;6
+2025;Ciudad Bolívar;16;8;0;0;7
+2025;Ciudad Bolívar;17;4;0;0;4
+2025;Engativá;11;8;1;0;3
+2025;Engativá;12;10;0;0;5
+2025;Engativá;13;7;0;1;5
+2025;Engativá;14;9;2;0;6
+2025;Engativá;15;9;3;2;6
+2025;Engativá;16;3;2;1;2
+2025;Engativá;17;5;3;1;5
+2025;Fontibón;11;4;0;0;2
+2025;Fontibón;12;5;3;1;3
+2025;Fontibón;13;7;2;0;5
+2025;Fontibón;14;7;0;0;5
+2025;Fontibón;15;13;3;2;11
+2025;Fontibón;16;5;0;0;4
+2025;Fontibón;17;3;0;0;3
+2025;Kennedy;11;12;0;0;9
+2025;Kennedy;12;11;2;0;10
+2025;Kennedy;13;8;2;0;7
+2025;Kennedy;14;18;2;0;13
+2025;Kennedy;15;14;2;1;11
+2025;Kennedy;16;12;2;1;8
+2025;Kennedy;17;6;0;0;5
+2025;Mártires;11;6;0;0;3
+2025;Mártires;12;4;0;0;4
+2025;Mártires;13;9;0;0;5
+2025;Mártires;14;7;0;0;4
+2025;Mártires;15;10;0;0;9
+2025;Mártires;16;4;1;0;4
+2025;Mártires;17;3;0;0;3
+2025;Puente Aranda;11;1;0;0;1
+2025;Puente Aranda;12;6;1;0;5
+2025;Puente Aranda;13;2;0;0;1
+2025;Puente Aranda;14;2;0;0;1
+2025;Puente Aranda;15;8;2;0;7
+2025;Puente Aranda;16;3;0;0;3
+2025;Puente Aranda;17;3;0;0;3
+2025;Rafael Uribe;11;5;1;0;4
+2025;Rafael Uribe;12;7;0;0;2
+2025;Rafael Uribe;13;6;0;0;6
+2025;Rafael Uribe;14;11;0;0;9
+2025;Rafael Uribe;15;8;1;0;6
+2025;Rafael Uribe;16;9;0;0;6
+2025;Rafael Uribe;17;5;0;0;4
+2025;San Cristóbal;11;14;0;0;11
+2025;San Cristóbal;12;8;1;0;3
+2025;San Cristóbal;13;7;0;0;3
+2025;San Cristóbal;14;9;0;0;8
+2025;San Cristóbal;15;11;1;0;8
+2025;San Cristóbal;16;7;0;0;6
+2025;San Cristóbal;17;5;0;0;5
+2025;Santa Fe;11;8;0;0;6
+2025;Santa Fe;12;6;1;0;2
+2025;Santa Fe;13;5;0;0;3
+2025;Santa Fe;14;3;0;0;2
+2025;Santa Fe;15;7;0;0;5
+2025;Santa Fe;16;7;0;0;4
+2025;Santa Fe;17;4;1;0;4
+2025;Suba;11;22;4;1;8
+2025;Suba;12;16;1;0;10
+2025;Suba;13;11;1;0;6
+2025;Suba;14;13;0;0;6
+2025;Suba;15;12;1;0;8
+2025;Suba;16;11;1;0;8
+2025;Suba;17;9;0;0;6
+2025;Sumapaz;13;1;0;0;0
+2025;Sumapaz;14;4;0;0;3
+2025;Teusaquillo;12;1;0;0;1
+2025;Teusaquillo;13;3;1;0;3
+2025;Teusaquillo;14;1;0;0;1
+2025;Teusaquillo;16;1;0;0;1
+2025;Teusaquillo;17;1;0;0;1
+2025;Tunjuelito;11;11;1;0;3
+2025;Tunjuelito;12;11;0;0;5
+2025;Tunjuelito;13;6;1;0;6
+2025;Tunjuelito;14;7;0;0;6
+2025;Tunjuelito;15;7;1;0;6
+2025;Tunjuelito;16;2;0;0;1
+2025;Tunjuelito;17;4;0;0;3
+2025;Usaquén;11;8;3;1;5
+2025;Usaquén;12;4;0;0;2
+2025;Usaquén;13;5;0;1;1
+2025;Usaquén;14;8;1;0;7
+2025;Usaquén;15;4;1;0;3
+2025;Usaquén;16;3;0;0;2
+2025;Usaquén;17;5;2;1;4
+2025;Usme;11;10;0;0;3
+2025;Usme;12;18;4;0;10
+2025;Usme;13;7;0;0;2
+2025;Usme;14;11;0;0;6
+2025;Usme;15;7;0;0;5
+2025;Usme;16;3;0;0;1
+2025;Usme;17;7;1;0;3

@@ -1,0 +1,20 @@
+METADATO;DESCRIPCION
+Serie de tiempo;2019
+Definición del indicador 1;Prevalencia de alteración en salud por exposición a ruido: afectación en salud y calidad de vida  por presentación de síntomas extra auditivos en la población caracterizada de la ciudad de Bogotá por exposición a ruido
+Definición del indicador 2;"Prevalencia  de alteración del sueño: Afectación en salud y calidad de vida relacionada con la carencia en calidad del sueño ""malos dormidores"",en la población caracterizada de la ciudad de Bogotá D.C."
+Definición del indicador 3;Prevalencia de somnolencia diurna: Afectación en salud y calidad de vida, por presentación de síntomas relacionados con el estado de somnolencia diurna excesiva,  en la población caracterizada de la ciudad de Bogotá
+Definición del indicador 4;Prevalencia uso de audifonos población adulta: Uso de audifonos en la población caracterizada de la ciudad de Bogotá D.C.
+Utilidad;Determinar la afectación en salud y calidad de vida, por presentación de síntomas extra auditivos en la población caracterizada de la ciudad de Bogotá  por exposición a ruido, alteración de sueño, somnolencia diurna y el uso de audifonos.
+Unidad de medición;Prevalencia
+Periodicidad;Anual
+Meta  ;A 2024 desarrollar una estrategia de entornos ambientalmente saludables a nivel urbano y rural en territorios priorizados e implementar el 100% de las estrategias establecidas en la política de salud ambiental para Bogotá  D.C. contribuyendo a prevenir la enfermedad y a promocionar la salud individual y colectiva de la población y así mismo, reducir en un 5% la mortalidad por contaminación del aire.
+Fuente de Información ;Secretaría Distrital de Salud, Subsecretaría de Salud Pública SIVIGILA D.C. 
+Localidad;Localidad del Distrito donde se encuentran las personas caracterizadas
+Año ;Periodo de recolección de la información
+Formula de cálculo Indicador1;"Alteración a la salud: Número de adultos (18 a 64 años) que presenta tres o más síntomas extra auditivos / Total de población adulta  (18 a 64 años) encuestada dentro del sistema de vigilancia en  Salud Ambiental de los efectos en la salud  por exposición a ruido en un periodo de tiempo * 100
+
+
+"
+Formula de cálculo Indicador2;Alteración del sueño (malos dormidores): Número de personas adultas (18 a 64 años) encuestadas con alteración del sueño (malos dormidores) / Total de población adulta (18 a 64 años) encuestada dentro del sistema de vigilancia en  Salud Ambiental de los efectos en la salud  por exposición a ruido en un periodo de tiempo * 100
+Formula de cálculo Indicador3;Somnolencia diurna: Número de adultos (18 a 64 años) encuestados con somnolencia excesiva diurna / Total de población adulta (18 a 64 años) encuestada dentro del sistema de vigilancia en  Salud Ambiental de los efectos en la salud  por exposición a ruido en un periodo de tiempo * 100
+Formula de cálculo Indicador4;Uso audifonos: Número de adultos (18 a 64 años) encuestados que usan audifonos / Total de población adulta (18 a 64 años) encuestada dentro del sistema de vigilancia en  Salud Ambiental de los efectos en la salud  por exposición a ruido en un periodo de tiempo * 100

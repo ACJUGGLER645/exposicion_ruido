@@ -1,0 +1,17 @@
+METADATO;DESCRIPCION
+Serie de tiempo;Desde 2019 población adolescente (11 a 17 años) 
+Definición del indicador;Afectación en salud y calidad de vida, por presentación de síntomas extra auditivos en la población caracterizada de la ciudad de Bogotá por exposición a ruido, somnolencia diurna y uso de audifonos .
+Utilidad;Determinar la afectación en salud y calidad de vida, por presentación de síntomas extra auditivos en la población caracterizada de la ciudad de Bogotá  por exposición a ruido, somnolencia diurna y el uso de audifonos
+Unidad de medición;Prevalencia
+Periodicidad;Semestral 
+Meta  ;A 2027 implementar el 60% del Plan de respuesta sectorial de gestión integral de riesgo en salud por calidad del aire en Bogotá.
+Fuente de Información ;Secretaría Distrital de Salud, Subsecretaría de Salud Pública, Aplicativo  SIVIGILA D.C. 
+Localidad;Localidad del Distrito donde se encuentran las personas caracterizadas
+Año ;Periodo de recolección de la información
+Formula de cálculo;"Número de adolescentes (11 a 17 años) que presenta tres o más síntomas extra auditivos / Total de población adolescente (11 a 17 años) encuestada dentro del sistema de vigilancia en  Salud Ambiental de los efectos en la salud  por exposición a ruido en un periodo de tiempo * 100. 
+"
+Formula de cálculo;"Número de adolescentes (11 a 17 años) encuestados con somnolencia excesiva diurna / Total de población adolescentes (11 a 17 años) encuestada dentro del sistema de vigilancia en  Salud Ambiental de los efectos en la salud  por exposición a ruido en un periodo de tiempo * 100. 
+"
+Formula de cálculo;"Número de adolescentes (11 a 17 años) encuestados que usan audifonos / Total de población adolescente (11 a 17 años) encuestada dentro del sistema de vigilancia en  Salud Ambiental de los efectos en la salud  por exposición a ruido en un periodo de tiempo * 100
+
+"
