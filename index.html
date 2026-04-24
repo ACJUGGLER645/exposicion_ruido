@@ -1388,14 +1388,18 @@
     .sexo-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 32px;
+      grid-auto-rows: 1fr;
+      gap: 24px;
+      align-items: stretch;
     }
 
     .sexo-card {
       background: var(--bg3);
       border: 1px solid rgba(255, 255, 255, .06);
       border-radius: 16px;
-      padding: 32px;
+      padding: 28px;
+      height: 100%;
+      box-sizing: border-box;
     }
 
     .sexo-card-title {
@@ -2237,10 +2241,10 @@
 
 
         <!-- Indicadores comparativos compactos -->
-        <div class="indicadores-comparativos">
-          <div class="ind-comp-title">
+        <div class="sexo-card">
+          <div class="sexo-card-title">
             <i data-lucide="bar-chart-2"></i>
-            Indicadores globales comparados — Adultos vs. Adolescentes
+            Indicadores globales — Adultos vs. Adolescentes
           </div>
           <div class="ind-comp-grid">
             <div class="ind-comp-col">
@@ -2557,7 +2561,7 @@
 
         <div class="step" data-step="6">
           <div class="step-num">04 — Los datos · Contexto habitacional</div>
-          <h2>Mismo techo,<br><em class="g">distinta vulnerabilidad</em></h2>
+          <h2 style="font-size:clamp(22px,2.8vw,34px)">Mismo techo,<br><em class="g">distinto<br>impacto</em></h2>
           <p>Una pregunta natural al ver perfiles de síntomas tan diferentes es: ¿viven en entornos distintos? La
             respuesta es no.</p>
           <p>Adultos y adolescentes comparten prácticamente la misma distribución de tipo de vivienda: cerca del
@@ -2565,8 +2569,8 @@
           <p>Las viviendas informales —inquilinato o habitación— representan menos del <strong>1%</strong> en ambos
             grupos, eliminando el entorno doméstico como variable explicativa de las diferencias observadas.</p>
           <div class="callout green">Si el <em>dónde viven</em> es igual, la diferencia en síntomas se explica por
-            <strong>cómo cada grupo se expone al ruido</strong>: conducta activa (audífonos) vs. acumulación crónica de
-            síntomas clínicos.</div>
+            <strong>cómo cada grupo se expone al ruido</strong>: comportamiento activo en adolescentes vs. acumulación
+            crónica de síntomas clínicos en adultos.</div>
         </div>
 
       </div>
